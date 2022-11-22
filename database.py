@@ -37,6 +37,21 @@ class User(UserMixin, Model):
 db.create_tables([User])
 
 
+class Massage(UserMixin, Model):
+    # カラムの登録
+    name = CharField()  # 文字
+    title = CharField()  # 文字
+    body = CharField()  # 文字
+
+    class Mata:
+        database = db
+        table_name = "Masssage"
+
+
+db.create_tables([Massage]) 
+
+id = IntegerField(primary_key=True)  # 数字    
+
 
 # テーブル
 # １．ユーザテーブル

@@ -5,7 +5,6 @@ from flask import render_template
 from flask import redirect
 from flask import request
 
-from database import User
 
 from flask_login import LoginManager
 from flask_login import login_user
