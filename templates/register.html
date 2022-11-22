@@ -1,14 +1,23 @@
 <!-- 登録画面
 利用したい車両、使用者、使用時間（開始予定時刻と終了予定時刻）、オドメーター情報（走行距離） -->
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>車両利用登録</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <p>
+            <lavel>利用車両<input type="text" name="vehicle_used"></lavel>
+            <!-- ↑ナンバー入力？ -->
+        </p>
+        <p>
+            <lavel>使用者名<input type="text" name="user_name"></lavel>
+        </p>
+        <dl>
+            <dt>使用時間</dt>
+            <dd>開始時刻<input type="time" name="start_time"></dd>
+            <dd>終了時刻<input type="time" name="ending_time"></dd>
+        </dl>
+        <!-- upload.html転送未入力 -->
+        <p><input type="submit" value="登録" name="register_sbmit"></p>
+    </form>
+{% endblock %}

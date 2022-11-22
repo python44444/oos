@@ -7,6 +7,7 @@ from database import User
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 
+
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = os.urandom(24)
@@ -68,5 +69,9 @@ def upload():
     return render_template("upload.html")
 
 
+#form
+
 if __name__ == "__main__":
     app.run(debug=True)
+
+print("テスト")
