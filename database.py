@@ -23,17 +23,15 @@ if not db.connect():
 #     オドメーター情報
 #     ステータス（空き状況）
 
-class Message(Model):
-    """Message Model"""
+from playhouse.db_url import connect
+from peewee import Model, IntegerField, CharField
+from flask_login import UserMixin
 
-    id = IntegerField(primary_key=True)  # idは自動で追加されるが明示
-    user = CharField()
-    content = TextField()
-    pub_date = TimestampField(default=datetime.datetime.now())  # 何も指定しない場合は現在時刻が入る
+db = connect("sqlite:///peewee_db.sqlite")
 
-    class Meta:
-        database = db
-        table_name = "messages"
+if not db.connect():
+    print("connection error")
+    exit()
+print("connection success")
 
-
-db.create_tables([Message])
+# ここでテーブル作ってね
