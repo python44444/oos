@@ -99,6 +99,5 @@ def login_post():
         return redirect("/")  # 一致していればログイン
     return redirect("/login")  # ログインしていない場合は再入力
 
-
 if __name__ == "__main__":
     app.run(debug=True)
