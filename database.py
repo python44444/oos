@@ -1,19 +1,53 @@
-# これデータベースpythonね
 import os
 from playhouse.db_url import connect
 from dotenv import load_dotenv
 from peewee import Model, IntegerField, CharField, TextField, TimestampField
 import datetime
+from flask_login import UserMixin
 
 load_dotenv()
 
-db = connect(os.environ.get('DATABASE'))
+db = connect(os.environ.get("DATABASE"))
 
+# 接続NGの場合はメッセージを表示
 if not db.connect():
     print("接続NG")
     exit()
+print("接続OK")
 
-# テーブル (↓ここ本物に書き直し)
+
+class User(UserMixin, Model):
+    # カラムの登録
+    id = IntegerField(primary_key=True)  # 数字
+    name = CharField()  # 文字
+    title = CharField()  # 文字
+    body = CharField()  # 文字
+
+    class Mata:
+        database = db
+        table_name = "users"
+
+
+db.create_tables([User])
+
+
+class Message(UserMixin, Model):
+    # カラムの登録
+    name = CharField()  # 文字
+    title = CharField()  # 文字
+    body = CharField()  # 文字
+
+    class Mata:
+        database = db
+        table_name = "Masssage"
+
+
+db.create_tables([Message])
+
+id = IntegerField(primary_key=True)  # 数字
+
+
+# テーブル
 # １．ユーザテーブル
 #     社員番号
 #     氏名
@@ -22,16 +56,3 @@ if not db.connect():
 #     車種
 #     オドメーター情報
 #     ステータス（空き状況）
-
-from playhouse.db_url import connect
-from peewee import Model, IntegerField, CharField
-from flask_login import UserMixin
-
-db = connect("sqlite:///peewee_db.sqlite")
-
-if not db.connect():
-    print("connection error")
-    exit()
-print("connection success")
-
-# ここでテーブル作ってね
