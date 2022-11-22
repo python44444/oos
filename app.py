@@ -17,8 +17,17 @@ def login():
 
 @app.route("/logout")
 def logout():
-    return redirect("/login")
+    return redirect("/")
 
+
+@app.route("/admin_login")
+def admin_login():
+    return render_template("admin_login.html")
+
+
+@app.route("/admin_logout")
+def admin_logout():
+    return redirect("/")
 
 @app.route("/signup")
 def signup():
@@ -39,4 +48,3 @@ def upload():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
