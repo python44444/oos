@@ -1,19 +1,13 @@
-# これデータベースpythonね
+import os
 from playhouse.db_url import connect
+from dotenv import load_dotenv
 from peewee import Model, IntegerField, CharField, TextField, TimestampField
+import datetime
 from flask_login import UserMixin
 
-# from dotenv import load_dotenv
+load_dotenv()
 
-# .envの読み込み
-# load_dotenv()
-# 実行したSQLをログで出力する設定
-
-
-# データベースへの接続設定
-# db = SqliteDatabase('peewee_db.sqlite')  # SQLite固定の場合
-db = connect("sqlite:///peewee_db.sqlite")  # 環境変数に合わせて変更する場合
-# db = connect(os.environ.get('DATABASE') or 'sqlite:///peewee_db.sqlite')  # 環境変数が無い場合にデフォルト値として値を設定することも可能
+db = connect(os.environ.get("DATABASE"))
 
 # 接続NGの場合はメッセージを表示
 if not db.connect():
@@ -37,7 +31,7 @@ class User(UserMixin, Model):
 db.create_tables([User])
 
 
-class Massage(UserMixin, Model):
+class Message(UserMixin, Model):
     # カラムの登録
     name = CharField()  # 文字
     title = CharField()  # 文字
@@ -48,9 +42,9 @@ class Massage(UserMixin, Model):
         table_name = "Masssage"
 
 
-db.create_tables([Massage]) 
+db.create_tables([Message])
 
-id = IntegerField(primary_key=True)  # 数字    
+id = IntegerField(primary_key=True)  # 数字
 
 
 # テーブル

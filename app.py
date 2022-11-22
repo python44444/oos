@@ -1,15 +1,7 @@
 import os
-
-from flask import Flask
-from flask import render_template
-from flask import redirect
-from flask import request
-
-
-from flask_login import LoginManager
-from flask_login import login_user
-from flask_login import login_required
-from flask_login import logout_user
+from flask import Flask, render_template, request, redirect
+from flask_login import LoginManager, login_user, login_required, logout_user
+from database import User
 
 # パスワードがそのままデータベースに入るで暗号化して開発者に見れないようにする
 from werkzeug.security import generate_password_hash  # 暗号化
@@ -17,10 +9,8 @@ from werkzeug.security import check_password_hash  # 暗号化したものをも
 
 app = Flask(__name__)
 
-
 app.config["SECRET_KEY"] = os.urandom(24)
 
-# login
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -28,6 +18,18 @@ login_manager.init_app(app)
 @login_manager.user_loader
 def load_user(id):
     return User.get(id=int(id))
+
+
+@login_manager.unauthorized_handler
+def unauthorizedid():
+    return redirect("/login")
+
+
+app.config["SECRET_KEY"] = os.urandom(24)
+
+# login
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 
 @login_manager.unauthorized_handler
@@ -39,6 +41,28 @@ def unauthorized():
 @login_required
 def index():
     return render_template("index.html")
+
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+
+@app.route("/logout")
+@login_required
+def logout():
+    return redirect("/")
+
+
+@app.route("/admin_login")
+def admin_login():
+    return render_template("admin_login.html")
+
+
+@app.route("/admin_logout")
+@login_required
+def admin_logout():
+    return redirect("/")
 
 
 @app.route("/signup")
@@ -59,11 +83,6 @@ def register():
     return redirect("/login")
 
 
-@app.route("/login")
-def login():
-    return render_template("login.html")
-
-
 @app.route("/login", methods=["POST"])
 def login_post():
     name = request.form.get("name")
@@ -80,13 +99,6 @@ def login_post():
         return redirect("/")  # 一致していればログイン
     return redirect("/login")  # ログインしていない場合は再入力
 
-
-# トップページにログアウトボタンを作成する。
-@app.route("/logout", methods=["POST"])
-@login_required
-def logout():
-    logout_user()
-    return redirect("/login")
 
 if __name__ == "__main__":
     app.run(debug=True)
