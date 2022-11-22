@@ -1,6 +1,6 @@
 # これはルーティングのpython
 from flask import Flask, render_template, redirect
-
+from flask import request
 
 app = Flask(__name__)
 
@@ -44,5 +44,9 @@ def upload():
     return render_template("upload.html")
 
 
+#form
+
 if __name__ == "__main__":
     app.run(debug=True)
+
+print("テスト")
