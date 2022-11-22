@@ -19,4 +19,4 @@ if not db.connect():
     exit()
 print("connection success")
 
-# ここでテーブル作ってね
+# ここでテーブル作ってねg
