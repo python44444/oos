@@ -1,9 +1,8 @@
+import datetime
 import os
 from playhouse.db_url import connect
 from dotenv import load_dotenv
 from peewee import Model, IntegerField, CharField, TextField, TimestampField
-import datetime
-from flask_login import UserMixin
 
 load_dotenv()
 
@@ -16,14 +15,15 @@ if not db.connect():
 print("接続OK")
 
 
-class User(UserMixin, Model):
-    # カラムの登録
-    id = IntegerField(primary_key=True)  # 数字
-    name = CharField()  # 文字
-    title = CharField()  # 文字
-    body = CharField()  # 文字
+class User(Model):
+    """User Model"""
 
-    class Mata:
+    id = IntegerField(primary_key=True)  # idは自動で追加されるが明示
+    name = CharField()
+    title = CharField()
+    body = CharField()
+
+    class Meta:
         database = db
         table_name = "users"
 
@@ -31,18 +31,20 @@ class User(UserMixin, Model):
 db.create_tables([User])
 
 
-class Message(UserMixin, Model):
-    # カラムの登録
-    name = CharField()  # 文字
-    title = CharField()  # 文字
-    body = CharField()  # 文字
+class Cars(Model):
+    """Cars Model"""
 
-    class Mata:
+    id = IntegerField(primary_key=True)  # idは自動で追加されるが明示
+    name = CharField()
+    title = CharField()
+    body = CharField()
+
+    class Meta:
         database = db
-        table_name = "Masssage"
+        table_name = "cars"
 
 
-db.create_tables([Message])
+db.create_tables([Cars])
 
 
 # テーブル (↓ここ本物に書き直し)
