@@ -7,19 +7,104 @@
     <p>
         <lavel>利用日<input type="date" name="use_date"></lavel>
     </p>
-    <dl>
-        <dt>使用時間</dt>
-        <dd>開始時刻<input type="time" name="start_time"></dd>
-        <dd>終了時刻<input type="time" name="ending_time"></dd>
-    </dl>
-    <select name="car_select" class="sel">
-        <option value="../images/25233238_s.jpg" >1</option>
-        <option value="">2</option>
-        <option value="">3</option>
-        <option value="">4</option>
-        <option value="">5</option>
-    </select>
-    <p>
+        <dl>
+            <dt>使用時間</dt>
+            <dd>開始時刻<input type="time" name="start_time"></dd>
+            <dd>終了時刻<input type="time" name="ending_time"></dd>
+        </dl>
+            <lavel>使用車両</lavel>
+                <select name="car_select" class="sel" multiple>
+                    <!-- <option value="../images/25233238_s.jpg">1</option> -->
+                    <option value="car">団広報</option>
+                    <option value="car2">連絡10</option>
+                    <option value="car3">連絡11</option>
+                    <option value="car4">連絡１</option>
+                    <option value="car5">予備積載車</option>
+                    <option value="car6">団指令１</option>
+                    <option value="car7">団指令20</option>
+                    <option value="car8">救急20</option>
+                    <option value="car9">タンク20</option>
+                    </select>
+                    <p>
+                    <lavel>使用者名</lavel>
+                    <p>
+                        <lavel>所属</lavel>
+                            <select name="department" multiple>
+                                <optgroup label="本部">
+                                <option value="001">総務課</option>
+                                <option value="002">消防課</option>
+                                <option value="003">予防課</option>
+                                <option value="003">防災課</option>
+                                <option value="003">他所属</option>
+                            </select>
+                    </p>
+                    <p>      
+                    </select>
+                        </p>
+                        <P>
+                            <lavel>GROUP1</lavel>
+                            <select name="department2" multiple>
+                                <optgroup label="グループ１">
+                                    <option value="001">渡辺栄郎</option>
+                                    <option value="002">元木隆史</option>
+                                    <option value="003">玉澤惇史</option>
+                                    <option value="004">佐々木陽介</option>
+                                    <option value="005">本吉秀敏</option>
+                                    <option value="006">佐藤幸紀</option>
+                                    <option value="007">日野竜太</option>
+                                    <option value="008">熊谷慎</option>
+                                    <option value="009">三浦悠</option>
+                                    <option value="010">岩渕真弥</option>
+                                    <option value="011">岩渕将生</option>
+                                    <option value="012">佐藤麻菜美</option>
+                                    <option value="013">阿部響</option>
+                            </select>
+                        </P>
+                        <p>
+                            <lavel>GROUP2</lavel>
+                            <select name="department2" multiple>
+                                <optgroup label="グループ2">
+                                    <option value="001">松本哲</option>
+                                    <option value="002">岩渕悟</option>
+                                    <option value="003">佐藤慶直</option>
+                                    <option value="004">阿部貴志</option>
+                                    <option value="005">折居哲也</option>
+                                    <option value="006">千葉直也</option>
+                                    <option value="007">菅原拓磨</option>
+                                    <option value="008">宍戸達彦</option>
+                                    <option value="009">高薄健太</option>
+                                    <option value="010">千葉晟</option>
+                                    <option value="011">千葉友理恵</option>
+                                    <option value="012">千葉友輝</option>
+                                    <option value="013">大下翔輝</option>
+                                    <option value="014">及川達志</option>
+                                </optgroup>
+                            </select>
+                        </p>
+                        <p>
+                            <lavel>GROUP3</lavel>
+                            <select name="department3" multiple>
+                                <optgroup label="グループ3">
+                                    <option value="001">千葉憲一</option>
+                                    <option value="002">千葉信一</option>
+                                    <option value="003">奥澤莞治</option>
+                                    <option value="004">石川洋平</option>
+                                    <option value="005">猪股久寿</option>
+                                    <option value="006">井上健二</option>
+                                    <option value="007">千葉翔太</option>
+                                    <option value="008">千葉崇嗣</option>
+                                    <option value="009">及川充人</option>
+                                    <option value="010">千葉崇弘</option>
+                                    <option value="011">佐藤涼</option>
+                                    <option value="012">千葉亜斗夢</option>
+                                    <option value="013">小岩啓人</option>
+                                    <option value="013">高橋翔湧</option>
+                                    <option value="013">吉田珠李</option>
+                                </optgroup>
+                            </select>
+                        </p>
+                        </select>
+    <!-- <p>
         <lavel>部署名<input type="date" name="use_date"></lavel>
     </p>
     <p>
@@ -27,7 +112,7 @@
     </p>
     <p>
         <lavel>オドメーター情報<input type="text" name="odometer"></lavel>
-    </p>
+    </p> -->
     <!-- upload.html転送未入力 -->
     <p><input type="submit" value="登録" name="register_sbmit"></p>
 </form>
