@@ -5,13 +5,15 @@
 
 {% block content %}
 <!-- <body> -->
-    <h1>SignUp</h1>
-    <form action="/signup" method="post">
-        <input type="text" name="name" placeholder="name"><br>
-        <input type="password" name="password" placeholder="password"><br>
-        
-        <input type="submit" value="Register">
-    </form>
+<h1>SignUp</h1>
+<form action="/signup" method="post">
+    <input type="text" name="name" placeholder="name"><br>
+    <input type="password" name="password" placeholder="password"><br><br>
+
+    <div class="button_center">
+        <input type="submit" value="SignUp">
+    </div>
+
+</form>
 <!-- </body> -->
 {% endblock %}
-

@@ -36,6 +36,12 @@ def car_register():
     return render_template("register.html")
 
 
+@app.route("/upload")
+@login_required
+def upload():
+    return render_template("upload.html")
+
+
 @app.route("/admin_login")
 def admin_login():
     return render_template("admin_login.html")

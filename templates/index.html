@@ -1,9 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
 
+
 <h1>Index</h1>
+<button onclick="location.href='/upload'">photo upload</button>
 <form action="/logout" method="post">
-    <input type="submit" value="Logout">
+    <div class="button_center">
+        <input type="submit" value="Logout">
+    </div>
 </form>
+
 
 {% endblock %}

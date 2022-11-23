@@ -17,7 +17,7 @@ if not db.connect():
 print("接続OK")
 
 
-class User(Model):
+class User(UserMixin, Model):
     """User Model"""
 
     id = IntegerField(primary_key=True)  # idは自動で追加されるが明示
@@ -34,7 +34,7 @@ class User(Model):
 db.create_tables([User])
 
 
-class Cars(Model):
+class Cars(UserMixin, Model):
     """Cars Model"""
 
     id = IntegerField(primary_key=True)  # idは自動で追加されるが明示
