@@ -3,14 +3,13 @@ from flask import Flask, render_template, request, redirect
 from flask_login import LoginManager, login_user, login_required, logout_user
 from database import User
 
-# パスワードがそのままデータベースに入るで暗号化して開発者に見れないようにする
-from werkzeug.security import generate_password_hash  # 暗号化
-from werkzeug.security import check_password_hash  # 暗号化したものをもとに戻す
+from werkzeug.security import generate_password_hash
+from werkzeug.security import check_password_hash
 
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = os.urandom(24)
-
+# login
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -25,20 +24,7 @@ def unauthorizedid():
     return redirect("/login")
 
 
-app.config["SECRET_KEY"] = os.urandom(24)
-
-# login
-login_manager = LoginManager()
-login_manager.init_app(app)
-
-
-@login_manager.unauthorized_handler
-def unauthorized():
-    return redirect("/login")
-
-
 @app.route("/")
-@login_required
 def index():
     return render_template("index.html")
 
@@ -46,12 +32,6 @@ def index():
 @app.route("/login")
 def login():
     return render_template("login.html")
-
-
-@app.route("/logout")
-@login_required
-def logout():
-    return redirect("/")
 
 
 @app.route("/admin_login")
@@ -98,6 +78,14 @@ def login_post():
         login_user(user)
         return redirect("/")  # 一致していればログイン
     return redirect("/login")  # ログインしていない場合は再入力
+
+
+# トップページにログアウトボタンを作成する。
+@app.route("/logout", methods=["POST"])
+@login_required
+def logout():
+    logout_user()
+    return redirect("/login")
 
 if __name__ == "__main__":
     app.run(debug=True)

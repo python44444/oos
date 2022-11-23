@@ -44,10 +44,8 @@ class Message(UserMixin, Model):
 
 db.create_tables([Message])
 
-id = IntegerField(primary_key=True)  # 数字
 
-
-# テーブル
+# テーブル (↓ここ本物に書き直し)
 # １．ユーザテーブル
 #     社員番号
 #     氏名
