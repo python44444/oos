@@ -21,11 +21,12 @@ def load_user(id):
 
 
 @login_manager.unauthorized_handler
-def unauthorizedid():
+def unauthorized():
     return redirect("/login")
 
 
 @app.route("/")
+@login_required
 def index():
     return render_template("index.html")
 
@@ -33,11 +34,6 @@ def index():
 @app.route("/register")
 def car_register():
     return render_template("register.html")
-
-
-@app.route("/login")
-def login():
-    return render_template("login.html")
 
 
 @app.route("/admin_login")
@@ -58,15 +54,17 @@ def signup():
 
 # アカウント登録→その後にログインで
 @app.route("/signup", methods=["POST"])
-def register():
-    name = request.form["name"]
-    password = request.form["password"]
-    User.create(name=name, password=password)  # アカウント名はそのままで
-    generate_password = generate_password_hash(
-        password, method="sha256"
-    )  # パスワードは暗号化したものを入れる
-    User.create(name=name, password=generate_password)
+def signup_post():
+    name = request.form.get("name")
+    password = request.form.get("password")
+    generate_password = generate_password_hash(password, method="sha256")
+    User.create(name=name, password=generate_password, title="title", body="body")
     return redirect("/login")
+
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 
 @app.route("/login", methods=["POST"])
@@ -74,16 +72,10 @@ def login_post():
     name = request.form.get("name")
     password = request.form.get("passwd")
     user = User.get(name=name)
-    # if user.password == password:
-    #     login_user(user)
-
-    #     return redirect("/")
-    if check_password_hash(
-        user.password, password
-    ):  # 入力したパスワードは暗号化されているがUserは気にすることなくパスワードを使用できる（自動化）
+    if check_password_hash(user.password, password):
         login_user(user)
-        return redirect("/")  # 一致していればログイン
-    return redirect("/login")  # ログインしていない場合は再入力
+        return redirect("/")
+    return redirect("/login")
 
 
 # トップページにログアウトボタンを作成する。

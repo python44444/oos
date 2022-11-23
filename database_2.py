@@ -17,14 +17,10 @@ if not db.connect():
 print("接続OK")
 
 
-class User(Model):
-    """User Model"""
-
-    id = IntegerField(primary_key=True)  # idは自動で追加されるが明示
+class User(UserMixin, Model):
+    id = IntegerField(primary_key=True)
     name = CharField()
     password = CharField()
-    title = CharField()
-    body = CharField()
 
     class Meta:
         database = db
