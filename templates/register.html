@@ -1,23 +1,34 @@
 <!-- 登録画面
 利用したい車両、使用者、使用時間（開始予定時刻と終了予定時刻）、オドメーター情報（走行距離） -->
 {% extends "layout.html" %}
-
 {% block content %}
-    <h1>車両利用登録</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
-        <p>
-            <lavel>利用車両<input type="text" name="vehicle_used"></lavel>
-            <!-- ↑ナンバー入力？ -->
-        </p>
-        <p>
-            <lavel>使用者名<input type="text" name="user_name"></lavel>
-        </p>
-        <dl>
-            <dt>使用時間</dt>
-            <dd>開始時刻<input type="time" name="start_time"></dd>
-            <dd>終了時刻<input type="time" name="ending_time"></dd>
-        </dl>
-        <!-- upload.html転送未入力 -->
-        <p><input type="submit" value="登録" name="register_sbmit"></p>
-    </form>
+<h1>車両利用登録</h1>
+<form action="/" method="post" enctype="multipart/form-data">
+    <p>
+        <lavel>利用日<input type="date" name="use_date"></lavel>
+    </p>
+    <dl>
+        <dt>使用時間</dt>
+        <dd>開始時刻<input type="time" name="start_time"></dd>
+        <dd>終了時刻<input type="time" name="ending_time"></dd>
+    </dl>
+    <select name="car_select" class="sel">
+        <option value="../images/25233238_s.jpg" >1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+        <option value="">4</option>
+        <option value="">5</option>
+    </select>
+    <p>
+        <lavel>部署名<input type="date" name="use_date"></lavel>
+    </p>
+    <p>
+        <lavel>使用者名<input type="text" name="user_name"></lavel>
+    </p>
+    <p>
+        <lavel>オドメーター情報<input type="text" name="odometer"></lavel>
+    </p>
+    <!-- upload.html転送未入力 -->
+    <p><input type="submit" value="登録" name="register_sbmit"></p>
+</form>
 {% endblock %}

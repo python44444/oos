@@ -1,7 +1,3 @@
-<<<<<<<<< Temporary merge branch 1
-import os
-=========
-# これはルーティングのpython
 import os
 from flask import Flask, render_template, request, redirect
 from flask_login import LoginManager, login_user, login_required, logout_user
@@ -9,28 +5,11 @@ from database import User
 
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
->>>>>>>>> Temporary merge branch 2
-
-from flask import Flask
-from flask import render_template
-from flask import redirect
-from flask import request
-
-from database import User
-
-from flask_login import LoginManager
-from flask_login import login_user
-from flask_login import login_required
-from flask_login import logout_user
-
-# パスワードがそのままデータベースに入るで暗号化して開発者に見れないようにする
-from werkzeug.security import generate_password_hash  # 暗号化
-from werkzeug.security import check_password_hash  # 暗号化したものをもとに戻す
 
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = os.urandom(24)
-
+# login
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -45,34 +24,14 @@ def unauthorizedid():
     return redirect("/login")
 
 
-app.config["SECRET_KEY"] = os.urandom(24)
-
-# login
-login_manager = LoginManager()
-login_manager.init_app(app)
-
-
-@login_manager.unauthorized_handler
-def unauthorized():
-    return redirect("/login")
-
-
 @app.route("/")
 def index():
     return render_template("index.html")
 
 
-<<<<<<<<< Temporary merge branch 1
-=========
 @app.route("/login")
 def login():
     return render_template("login.html")
-
-
-@app.route("/logout")
-@login_required
-def logout():
-    return redirect("/")
 
 
 @app.route("/admin_login")
@@ -86,7 +45,6 @@ def admin_logout():
     return redirect("/")
 
 
->>>>>>>>> Temporary merge branch 2
 @app.route("/signup")
 def signup():
     return render_template("signup.html")
@@ -105,12 +63,6 @@ def register():
     return redirect("/login")
 
 
-@app.route("/login")
-def login():
-    return render_template("login.html")
-
-
-<<<<<<<<< Temporary merge branch 1
 @app.route("/login", methods=["POST"])
 def login_post():
     name = request.form.get("name")
@@ -134,9 +86,7 @@ def login_post():
 def logout():
     logout_user()
     return redirect("/login")
-=========
-#form
->>>>>>>>> Temporary merge branch 2
+
 
 if __name__ == "__main__":
     app.run(debug=True)
