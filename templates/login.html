@@ -1,34 +1,19 @@
 <!-- 社員番号とパスワードでログイン -->
-<<<<<<< HEAD
-=======
+
+
+
 {% extends "layout.html" %}
-
 {% block content %}
-<!-- <body> -->
-    
-<!-- </body> -->
-{% endblock %}
->>>>>>> e0febdb80026529405ceb98d4c6fb50a4eb9288c
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<<<<<<< HEAD
-    
-</body>
-=======
-    <h1>Login</h1>
-    <form action="/login" method="post">
-        <input type="text" name="name" placeholder="name">
-        <input type="password" name="passwd" placeholder="password">
-        <input type="submit" value="Login">
-    </form>
-</body>
 
->>>>>>> e0febdb80026529405ceb98d4c6fb50a4eb9288c
-</html>
+<h1>Login</h1>
+<form action="/login" method="post">
+    <input type="text" name="name" placeholder="name"><br>
+    <input type="password" name="passwd" placeholder="password"><br><br>
+    
+    <div class="button_center">
+        <input type="submit" value="Login">
+        <input type="submit" value="Login as Admin">
+    </div>
+</form>
+
+{% endblock %}
