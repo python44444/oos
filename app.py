@@ -21,21 +21,37 @@ login_manager.init_app(app)
 def load_user(id):
     return User.get(id=int(id))
 
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
 
-@login_manager.unauthorized_handler
-def unauthorized():
+
+# アカウント登録→その後にログインで
+@app.route("/signup", methods=["POST"])
+def signup_post():
+    name = request.form.get("name")
+    password = request.form.get("password")
+    generate_password = generate_password_hash(password, method="sha256")
+    User.create(name=name, password=generate_password, title="title", body="body")
     return redirect("/login")
 
 
-@app.route("/")
-@login_required
-def index():
-    return render_template("index.html")
 
 
-@app.route("/register")
-def car_register():
-    return render_template("register.html")
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+
+@app.route("/login", methods=["POST"])
+def login_post():
+    name = request.form.get("name")
+    password = request.form.get("passwd")
+    user = User.get(name=name)
+    if check_password_hash(user.password, password):
+        login_user(user)
+        # return redirect("/")
+    return redirect("/admin_login")
 
 
 @app.route("/upload")
@@ -55,9 +71,30 @@ def upload_post():
     # return render_template("admin_login.html", outfile=file)
 
 
+
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    return redirect("/login")
+
+
+@app.route("/")
+@login_required
+def index():
+    return render_template("index.html")
+
+
+@app.route("/register")
+def car_register():
+    return render_template("register.html")
+
+
+
 @app.route("/admin_login")
 def admin_login():
     return render_template("admin_login.html")
+
+
 
 
 @app.route("/admin_logout")
@@ -66,35 +103,6 @@ def admin_logout():
     return redirect("/")
 
 
-@app.route("/signup")
-def signup():
-    return render_template("signup.html")
-
-
-# アカウント登録→その後にログインで
-@app.route("/signup", methods=["POST"])
-def signup_post():
-    name = request.form.get("name")
-    password = request.form.get("password")
-    generate_password = generate_password_hash(password, method="sha256")
-    User.create(name=name, password=generate_password, title="title", body="body")
-    return redirect("/login")
-
-
-@app.route("/login")
-def login():
-    return render_template("login.html")
-
-
-@app.route("/login", methods=["POST"])
-def login_post():
-    name = request.form.get("name")
-    password = request.form.get("passwd")
-    user = User.get(name=name)
-    if check_password_hash(user.password, password):
-        login_user(user)
-        return redirect("/")
-    return redirect("/login")
 
 
 # トップページにログアウトボタンを作成する。
