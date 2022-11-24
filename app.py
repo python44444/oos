@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template, request, redirect
 from flask_login import LoginManager, login_user, login_required, logout_user
 from database import User
+from PIL import Image
+from ocr import display
 
 
 from werkzeug.security import generate_password_hash
@@ -40,6 +42,17 @@ def car_register():
 @login_required
 def upload():
     return render_template("upload.html")
+
+
+@app.route("/upload", methods=["POST"])
+@login_required
+def upload_post():
+    file = request.files["file"]
+    img = Image.open(file)
+    img.save("static/images/image.jpeg")
+    out = display("static/images/image.jpeg")
+    return render_template("upload.html", distance=out)
+    # return render_template("admin_login.html", outfile=file)
 
 
 @app.route("/admin_login")
@@ -93,4 +106,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=True)
