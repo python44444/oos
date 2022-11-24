@@ -71,6 +71,9 @@ def upload_post():
     # return render_template("admin_login.html", outfile=file)
 
 
+@app.route("/register")
+def car_register():
+    return render_template("register.html")
 
 
 @login_manager.unauthorized_handler
@@ -84,9 +87,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/register")
-def car_register():
-    return render_template("register.html")
 
 
 
@@ -114,4 +114,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="5.0.0.1", debug=True)
