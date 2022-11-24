@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 from flask_login import LoginManager, login_user, login_required, logout_user
 from database import User
 
+
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 
@@ -27,6 +28,11 @@ def unauthorizedid():
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route("/register")
+def car_register():
+    return render_template("register.html")
 
 
 @app.route("/login")
@@ -86,6 +92,7 @@ def login_post():
 def logout():
     logout_user()
     return redirect("/login")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
