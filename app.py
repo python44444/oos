@@ -87,11 +87,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/admin_login")
-def admin_login():
-    return render_template("admin_login.html")
-
-
 @app.route("/admin_login", methods=["POST"])
 def register_chinko():
     calender= request.form.get("calender")
@@ -113,7 +108,7 @@ def register_chinko():
         ODO="ODO",
         text="text",
     )
-    return redirect("/admin_login")
+    return render_template("admin_login.html")
 
 
 @app.route("/admin_logout")

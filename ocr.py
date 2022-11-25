@@ -11,9 +11,7 @@ photo = "static/images/image.jpeg"
 def ocr(photo):
     img = Image.open(photo)
     txt = tool.image_to_string(
-        img,
-        lang="jpn",
-        builder=pyocr.builders.DigitBuilder(tesseract_layout=10)
+        img, lang="jpn", builder=pyocr.builders.DigitBuilder(tesseract_layout=6)
         # img, lang="jpn", builder=pyocr.builders.DigitBuilder()
     )
 
