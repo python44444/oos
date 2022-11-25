@@ -134,4 +134,16 @@
     </div>
     <p class="register_sbmit"><input type="submit" class="btn btn-primary register_sbmit_btn" value="登録" name="register_sbmit"></p>
 </form>
+
+    <h1>予約内容</h1>
+    <ul>
+        <li>利用日：{{ session[“use_date”] }}</li>
+        <li>利用開始時間：{{ session[“start_time”] }}</li>
+        <li>利用終了時間：{{ session[“ending_time”] }}</li>
+        <li>業務内容：{{ session[“ending_time”] }}</li>
+        <li>利用者所属：{{ session[“ending_time”] }}</li>
+        <li>利用者指名：{{ session[“ending_time”] }}</li>
+        <li>オドメーター：{{ session[“odometer”] }}</li>
+        <li>特記事項：{{ session[“txet”] }}</li>
+    </ul> 
 {% endblock %}
