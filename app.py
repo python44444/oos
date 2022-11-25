@@ -21,6 +21,7 @@ login_manager.init_app(app)
 def load_user(id):
     return User.get(id=int(id))
 
+
 @app.route("/signup")
 def signup():
     return render_template("signup.html")
@@ -34,8 +35,6 @@ def signup_post():
     generate_password = generate_password_hash(password, method="sha256")
     User.create(name=name, password=generate_password, title="title", body="body")
     return redirect("/login")
-
-
 
 
 @app.route("/login")
@@ -52,6 +51,16 @@ def login_post():
         login_user(user)
         # return redirect("/")
     return redirect("/admin_login")
+
+
+@app.route("/register")
+def car_register():
+    return render_template("register.html")
+
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    return redirect("/login")
 
 
 @app.route("/upload")
@@ -71,23 +80,10 @@ def upload_post():
     # return render_template("admin_login.html", outfile=file)
 
 
-@app.route("/register")
-def car_register():
-    return render_template("register.html")
-
-
-@login_manager.unauthorized_handler
-def unauthorized():
-    return redirect("/login")
-
-
 @app.route("/")
 @login_required
 def index():
     return render_template("index.html")
-
-
-
 
 
 @app.route("/admin_login")
@@ -95,14 +91,10 @@ def admin_login():
     return render_template("admin_login.html")
 
 
-
-
 @app.route("/admin_logout")
 @login_required
 def admin_logout():
     return redirect("/")
-
-
 
 
 # トップページにログアウトボタンを作成する。
@@ -114,4 +106,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(host="5.0.0.1", debug=True)
+    app.run(host="0.0.0.0", port=0000, debug=True)
