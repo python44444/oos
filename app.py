@@ -94,25 +94,24 @@ def admin_login():
 
 @app.route("/admin_login", methods=["POST"])
 def register_chinko():
-    calender = request.form["use_date"]
-    start_time = request.form["start_time"]
-    endiing_time = request.form["ending_time"]
-    # task = request.form.get("task")
-    select = request.form["select"]
-    car_select = request.form["car_select"]
-    ODO = request.form["odometer"]
-    text = request.form["txet"]
+    calender= request.form.get("calender")
+    start_time = request.form.get（"start_time"）
+    endiing_time = request.form.get（"endiing_time"）
+    task = request.form.get（"task"）
+    car_select =request.form.get （"car_select"）
+    select = request.form.get（"select"）
+    ODO = request.form.get（"ODO"）
+    text = request.form.get（"memo"）
 
     Cars.create(
-        calender=calender,
-        start_time=start_time,
-        endiing_time=endiing_time,
-        # task=task,
-        task="chinco",
-        car_select=car_select,
-        select=select,
-        ODO=ODO,
-        text=text,
+        calender="day",
+        start_time="start_time",
+        endiing_time="endiing_time",
+        task="task",
+        car_select="car_select",
+        select="select",
+        ODO="ODO",
+        text="text",
     )
     return redirect("/admin_login")
 
