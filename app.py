@@ -1,10 +1,9 @@
 import os
 from flask import Flask, render_template, request, redirect
 from flask_login import LoginManager, login_user, login_required, logout_user
-from database import User
+from database import User, Cars
 from PIL import Image
 from ocr import display
-
 
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
@@ -22,20 +21,37 @@ def load_user(id):
     return User.get(id=int(id))
 
 
-@login_manager.unauthorized_handler
-def unauthorized():
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
+
+# アカウント登録→その後にログインで
+@app.route("/signup", methods=["POST"])
+def signup_post():
+    name = request.form.get("name")
+    password = request.form.get("password")
+    generate_password = generate_password_hash(password, method="sha256")
+    User.create(name=name, password=generate_password, title="title", body="body")
+
     return redirect("/login")
 
 
-@app.route("/")
-@login_required
-def index():
-    return render_template("index.html")
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 
-@app.route("/register")
-def car_register():
-    return render_template("register.html")
+@app.route("/login_user", methods=["POST"])
+def login_post():
+    name = request.form["name"]
+    password = request.form["password"]
+    user = User.get(name=name)
+    if check_password_hash(user.password, password):
+        login_user(user)
+
+        # return redirect("/")
+    return redirect("/register")
 
 
 @app.route("/upload")
@@ -55,8 +71,43 @@ def upload_post():
     # return render_template("admin_login.html", outfile=file)
 
 
-@app.route("/admin_login")
-def admin_login():
+@app.route("/register", methods=["GET"])
+def register():
+    return render_template("register.html")
+
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    return redirect("/login")
+
+
+@app.route("/")
+@login_required
+def index():
+    return render_template("index.html")
+
+
+@app.route("/admin_login", methods=["POST"])
+def register_chinko():
+    calender= request.form.get("calender")
+    start_time = request.form.get（"start_time"）
+    endiing_time = request.form.get（"endiing_time"）
+    task = request.form.get（"task"）
+    car_select =request.form.get （"car_select"）
+    select = request.form.get（"select"）
+    ODO = request.form.get（"ODO"）
+    text = request.form.get（"memo"）
+
+    Cars.create(
+        calender="day",
+        start_time="start_time",
+        endiing_time="endiing_time",
+        task="task",
+        car_select="car_select",
+        select="select",
+        ODO="ODO",
+        text="text",
+    )
     return render_template("admin_login.html")
 
 
@@ -64,37 +115,6 @@ def admin_login():
 @login_required
 def admin_logout():
     return redirect("/")
-
-
-@app.route("/signup")
-def signup():
-    return render_template("signup.html")
-
-
-# アカウント登録→その後にログインで
-@app.route("/signup", methods=["POST"])
-def signup_post():
-    name = request.form.get("name")
-    password = request.form.get("password")
-    generate_password = generate_password_hash(password, method="sha256")
-    User.create(name=name, password=generate_password, title="title", body="body")
-    return redirect("/login")
-
-
-@app.route("/login")
-def login():
-    return render_template("login.html")
-
-
-@app.route("/login", methods=["POST"])
-def login_post():
-    name = request.form.get("name")
-    password = request.form.get("passwd")
-    user = User.get(name=name)
-    if check_password_hash(user.password, password):
-        login_user(user)
-        return redirect("/")
-    return redirect("/login")
 
 
 # トップページにログアウトボタンを作成する。
