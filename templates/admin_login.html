@@ -1,20 +1,14 @@
-<!-- admin用のlogin画面
-なんか組織用のlogin的な？
-ここから自社内の社員の社員番号アンドパスワードを一気に登録できる感じかな -->
-<!DOCTYPE html>
-<html lang="ja">
+<!-- 登録と距離選択ボタンのページ -->
+{% extends "layout.html" %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 
-<body>
-    <h1>photo</h1>
-    <p>{{ outfile }}</p>
-    <img src="{{ outfile }}" alt="">
-</body>
+<h1>車両管理システム</h1>
+<div class="btn-wrap">
+    <input type="button" onclick="location.href='/register'" value="車両登録"  class="btn btn-primary btn-lg">
+    <input type="button" onclick="location.href='/upload'" value="距離を取る" class="btn btn-secondary btn-lg">
+</div>
+<p>{{ outfile }}</p>
+<img src="{{ outfile }}" alt="">
 
-</html>
+{% endblock %}
