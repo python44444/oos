@@ -2,7 +2,7 @@ import datetime
 import os
 from playhouse.db_url import connect
 from dotenv import load_dotenv
-from peewee import Model, IntegerField, CharField, TextField, TimestampField
+from peewee import Model, IntegerField, CharField, TextField, TimestampField,DateField,FloatField
 from flask_login import UserMixin
 
 # load_dotenv()
@@ -37,10 +37,15 @@ db.create_tables([User])
 class Cars(UserMixin, Model):
     """Cars Model"""
 
-    id = IntegerField(primary_key=True)  # idは自動で追加されるが明示
-    name = CharField()
-    title = CharField()
-    body = CharField()
+    calendar= IntegerField  # idは自動で追加されるが明示
+    start_time = DateField()
+    endiing_time = DateField()
+    task = CharField()
+    car_select = CharField()
+    select = CharField()
+    ODO = FloatField()
+    text = TextField()
+
 
     class Meta:
         database = db
