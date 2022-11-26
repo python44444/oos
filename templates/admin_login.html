@@ -3,10 +3,10 @@
 {% block content %}
 
 
-<h1>車両管理システム</h1>
+<h1 class="admin_login_h1">お疲れさまです</h1>
 <div class="btn-wrap">
-    <input type="button" onclick="location.href='/register'" value="車両登録" class="btn btn-primary btn-lg">
-    <input type="button" onclick="location.href='/upload'" value="距離を取る" class="btn btn-secondary btn-lg">
+    <input type="button" onclick="location.href='/register'" value="車両登録" class="btn btn-outline-dark">
+    <input type="button" onclick="location.href='/upload'" value="距離を取る" class="btn btn-outline-dark">
 </div>
 <p>{{ outfile }}</p>
 <img src="{{ outfile }}" alt="">
