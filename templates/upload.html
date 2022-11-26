@@ -4,16 +4,157 @@ OCRで読み込み、利用後のメータ距離をDBに保存 -->
 {% block content %}
 
 <h1>オドメーター画像登録</h1>
+<p>{{ distance }}</p>
+#写真を表示
+<!-- <p>{{ path }}</p> -->
+<p>
+<h2>輸送１</h2>
 <form action="/upload" method="post" enctype="multipart/form-data">
     <p class="text_center">画像から走行距離を読み取ります</p>
-    <!-- <input type="file" capture="environment" name="file" value="take a photo" accept=".png, .jpeg, .jpg, .webp"> -->
-    <!-- <input type="file" capture="environment" name="file" value="take a photo" accept="image/*"> -->
     <input type="file" name="file" value="take a photo" accept="image/*">
-    <!-- <input type="file" name="file" value="take a photo" accept=".png, .jpeg, .jpg, .webp"> -->
     <div class="button_center">
         <input type="submit" value="upload">
-    </div>
+</p>
+<img src={{ yusou1 }} alt="">
+<p>
+<h2>救助１</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ kyuuzyo1 }} alt="">
+<p>
+<h2>化学１</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ kagaku }} alt="">
+<p>
+<h2>タンク１</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ tank1 }} alt="">
+<p>
+<h2>水槽１</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ suisou1 }} alt="">
+<p>
+<h2>梯子１</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ hasigo1 }} alt="">
+<p>
+<h2>支援１</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ shien1 }} alt="">
+<p>
+<h2>団広報１</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ dankouhou1 }} alt="">
+<p>
+<h2>連絡１０</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ renraku10}} alt="">
+<p>
+<h2>連絡１１</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ renraku11 }} alt="">
+<p>
+<h2>連絡１</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ renraku1 }} alt="">
+<p>
+<h2>予備積載車</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ yobisekisai }} alt="">
+<p>
+<h2>団指令１</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ danshirei1 }} alt="">
+<p>
+<h2>団指令２０</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ danshirei20 }} alt="">
+<p>
+<h2>救急２０</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ kyukyu20 }} alt="">
+<p>
+<h2>タンク２０</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="text_center">画像から走行距離を読み取ります</p>
+    <input type="file" name="file" value="take a photo" accept="image/*">
+    <div class="button_center">
+        <input type="submit" value="upload">
+</p>
+<img src={{ tanku20 }} alt="">
+
+<input type="submit" value="comfirm">
 </form>
-<p>{{ distance }}</p>
+<button onclick="location.href='/register'">back</button>
+</body>
 
 {% endblock %}

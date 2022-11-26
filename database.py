@@ -62,3 +62,27 @@ class Cars(UserMixin, Model):
 
 
 db.create_tables([Cars])
+
+
+
+
+class Photos(UserMixin, Model):
+    """Cars Model"""
+
+    id = IntegerField(primary_key=True)  # idは自動で追加されるが明示
+    use_date = CharField()  # idは自動で追加されるが明示
+    start_time = DateField()
+    ending_time = DateField()
+    task = CharField()
+    car_select = CharField()
+    select = CharField()
+    ODO = FloatField()
+    oil = FloatField()
+    text = TextField()
+
+    class Meta:
+        database = db
+        table_name = "Photos"
+
+
+db.create_tables([Photos])

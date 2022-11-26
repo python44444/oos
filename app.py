@@ -128,16 +128,47 @@ def upload():
     return render_template("upload.html")
 
 
+# 画像写す
 @app.route("/upload", methods=["POST"])
-@login_required
-def upload_post():
+def upload_get():
     file = request.files["file"]
     img = Image.open(file)
+    img = img.resize((200, 200))
+    path = "static/images/image.jpeg"
+    img.save(path)
+    out = display(path)
+    return render_template("upload.html", distance=out, path=path)
 
-    img.save("static/images/image.jpeg")
-    out = display("static/images/image.jpeg")
-    return render_template("upload.html", distance=out)
-    # return render_template("admin_login.html", outfile=file)
+
+app.route("/register_chinko", methods=["POST"])
+def register_chinko():
+    use_date = request.form["use_date"]
+    start_time = request.form["start_time"]
+    endiing_time = request.form["endiing_time"]
+    # task = request.form["task"]
+    car_select = request.form["car_select"]
+    select = request.form["select"]
+    ODO = request.form["odo"]
+    oil = request.form["oil"]
+    text = request.form["text"]
+
+    Cars.create(
+        use_date=use_date,
+        start_time=start_time,
+        endiing_time=endiing_time,
+        task="ちんこ",
+        car_select=car_select,
+        select=select,
+        ODO=ODO,
+        oil=oil,
+        text=text,
+    )
+    return render_template("admin_login.html")
+
+
+
+
+
 
 
 @app.route("/admin_logout")
