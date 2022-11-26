@@ -2,7 +2,7 @@ import datetime
 import os
 from playhouse.db_url import connect
 from dotenv import load_dotenv
-from flask import current_user
+# from flask import current_user
 from peewee import (
     Model,
     IntegerField,
@@ -72,7 +72,7 @@ class Photos(UserMixin, Model):
     kagaku1 = CharField()
     tank1 = CharField()
     suisou1 = CharField()
-    hashhigo1 = CharField()
+    hashigo1 = CharField()
     shien1 = CharField()
     dankouhou1 = CharField()
     renraku11 = CharField()
@@ -82,7 +82,7 @@ class Photos(UserMixin, Model):
     danshirei1 = CharField()
     danshirei20 = CharField()
     kyuukyuu20 = CharField()
-    tanku20 = CharField()
+    tank20 = CharField()
 
     class Meta:
         database = db
