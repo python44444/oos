@@ -2,14 +2,15 @@ import datetime
 import os
 from playhouse.db_url import connect
 from dotenv import load_dotenv
+from flask import current_user
 from peewee import (
     Model,
     IntegerField,
     CharField,
-    TextField,
+    CharField,
     TimestampField,
     DateField,
-    FloatField,
+    CharField,
 )
 from flask_login import UserMixin
 
@@ -52,9 +53,9 @@ class Cars(UserMixin, Model):
     task = CharField()
     car_select = CharField()
     select = CharField()
-    ODO = FloatField()
-    oil = FloatField()
-    text = TextField()
+    ODO = CharField()
+    oil = CharField()
+    text = CharField()
 
     class Meta:
         database = db
@@ -62,3 +63,30 @@ class Cars(UserMixin, Model):
 
 
 db.create_tables([Cars])
+
+
+class Photos(UserMixin, Model):
+
+    yusou1 = CharField()
+    kyuuzyo1 = CharField()
+    kagaku1 = CharField()
+    tank1 = CharField()
+    suisou1 = CharField()
+    hashhigo1 = CharField()
+    shien1 = CharField()
+    dankouhou1 = CharField()
+    renraku11 = CharField()
+    renraku10 = CharField()
+    renraku1 = CharField()
+    yobisekisai = CharField()
+    danshirei1 = CharField()
+    danshirei20 = CharField()
+    kyuukyuu20 = CharField()
+    tanku20 = CharField()
+
+    class Meta:
+        database = db
+        table_name = "Photos"
+
+
+db.create_tables([Photos])
