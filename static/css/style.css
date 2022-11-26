@@ -19,7 +19,8 @@ h1 {
 }
 
 
-
+.container {
+}
 
 
 .outer {
@@ -40,8 +41,20 @@ h1 {
     text-align: center;
 }
 
-.text_center {
+.text_center , .admin_login_h1 {
     text-align: center;
+}
+
+
+/* login */
+.line_hight {
+    width: 200px;
+    line-height: 50px;
+    font-size: 150%;
+}
+
+.margin_top {
+    margin-top: 20px;
 }
 
 
@@ -54,36 +67,51 @@ h1 {
     border-radius: 5%;
 }
 
-.btn-primary,
-.btn-secondary {
+
+.btn-outline-dark{
     margin: 30px 10px 50px 10px;
     padding: 10px;
     width: 500px;
-    height: 200px;
-    background-color: #7d8083;
+    height: 100px;
+    font-size: 1.5rem;
     border-radius: 30px;
-    font-size: 180%;
+    /* font-size: 180%; */
 }
 
-.btn-group-lg>.btn,
+.btn-outline-dark:hover {
+    background-color: rgb(98, 31, 81);
+}
+
+.register_sbmit_btn:hover {
+    background-color: rgb(98, 31, 81);
+    border-color: rgb(98, 31, 81);
+}
+
+.register_sbmit_btn , .register_sbmit{
+    background-color: #ffffff;
+    color: black;
+    border-color: black;
+}
+
+
+/* .btn-group-lg>.btn,
 .btn-lg {
-    border-radius: 5rem;
+    border-radius: none;
     border: none;
-}
+} */
 
-.btn-primary:hover {
+/* .btn-primary:hover {
     background-color: #25569e;
 }
 
 .btn-secondary:hover {
     background-color: #3e4043;
-}
+} */
 
 
 /* register */
 
 .d-flex {
-    margin: 50px;
     flex-wrap: wrap;
 }
 

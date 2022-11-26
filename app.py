@@ -119,7 +119,7 @@ def register_chinko():
         oil=oil,
         text=text,
     )
-    return render_template("admin_login.html")
+    return render_template("uplord.html")
 
 
 @app.route("/upload")
@@ -141,6 +141,8 @@ def upload_get():
 
 
 app.route("/register_chinko", methods=["POST"])
+
+
 def register_chinko():
     use_date = request.form["use_date"]
     start_time = request.form["start_time"]
@@ -163,12 +165,48 @@ def register_chinko():
         oil=oil,
         text=text,
     )
-    return render_template("admin_login.html")
+    return render_template("uplord.html")
 
 
+# uploed画像データベース
+@app.route("/upload", methods=["POST"])
+def uplord_unko():
+    yusou1 = request.form["yusou1"]
+    kyuuzyo1 = request.form["kyuuzyo1"]
+    kagaku1 = request.form["kagaku1"]
+    tank1 = request.form["tank1"]
+    suisou1 = request.form["suisou1"]
+    hashigo1 = request.form["hashigo1"]
+    shien1 = request.form["shien1"]
+    dankouhou1 = request.form["dankouhou1"]
+    rennraku11 = request.form["renraku11"]
+    renraku10 = request.form["renraku10"]
+    renraku1 = request.form["renraku1"]
+    yobisekisai = request.form["yobisekisai"]
+    danshirei1 = request.form["danshirei1"]
+    danshirei20 = request.form["danshirei20"]
+    kyuukyuu20 = request.form["kyuukyuu20"]
+    tank20 = request.form["tank20"]
 
-
-
+    Photos.create(
+        yusou1=yusou1,
+        kyuuzyo1=kyuuzyo1,
+        kagaku1=kagaku1,
+        tank1=tank1,
+        suisou1=suisou1,
+        hashigo1=hashigo1,
+        shien1=shien1,
+        dankouhou1=dankouhou1,
+        rennraku11=rennraku11,
+        renraku10=renraku10,
+        renraku1=renraku1,
+        yobisekisai=yobisekisai,
+        danshirei1=danshirei1,
+        danshirei20=danshirei20,
+        kyuukyuu20=kyuukyuu20,
+        tank20=tank20,
+    )
+    return render_template("upload.html")
 
 
 @app.route("/admin_logout")
@@ -192,4 +230,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5001 , debug=True)
+    app.run(host="0.0.0.0", port=5001, debug=True)
