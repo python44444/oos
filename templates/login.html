@@ -5,13 +5,13 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1>Login</h1>
-<form action="/login_user" method="post">
-    <input type="text" name="name" placeholder="name"><br>
-    <input type="password" name="password" placeholder="password"><br><br>
+<h1 class="text_center">ログイン</h1>
+<form action="/login_user" method="post" class="text_center">
+    <input type="text" size="15" name="name" placeholder="name" class="line_hight"><br><br>
+    <input type="password" size="15" name="password" placeholder="password" class="line_hight"><br><br>
     
-    <div class="button_center">
-        <input type="submit" value="Login">
+    <div class="button_center margin_top">
+        <input type="submit" class="btn btn-primary register_sbmit_btn" value="ログイン">
         <!-- <input type="submit" value="Login as Admin"> -->
     </div>
 </form>
