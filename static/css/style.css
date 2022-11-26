@@ -46,6 +46,18 @@ h1 {
 }
 
 
+/* login */
+.line_hight {
+    width: 200px;
+    line-height: 50px;
+    font-size: 150%;
+}
+
+.margin_top {
+    margin-top: 20px;
+}
+
+
 /* admin */
 .btn-wrap {
     display: flex;
@@ -75,7 +87,7 @@ h1 {
     border-color: rgb(98, 31, 81);
 }
 
-.register_sbmit_btn{
+.register_sbmit_btn , .register_sbmit{
     background-color: #ffffff;
     color: black;
     border-color: black;
