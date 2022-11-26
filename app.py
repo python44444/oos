@@ -133,6 +133,7 @@ def upload():
 def upload_post():
     file = request.files["file"]
     img = Image.open(file)
+
     img.save("static/images/image.jpeg")
     out = display("static/images/image.jpeg")
     return render_template("upload.html", distance=out)
