@@ -25,20 +25,19 @@ def ocr(photo):
     img = cv2.imread(photo)
 
     img_gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-    cv2.imwrite("static/images/gray.jpeg", img_gray)
+    # cv2.imwrite("static/images/gray.jpeg", img_gray)
 
-    img_reverse = 255 - img_gray
-    cv2.imwrite("static/image/reverse.jpeg", img_reverse)
+    # img_reverse = 255 - img_gray
+    # cv2.imwrite("static/image/reverse.jpeg", img_reverse)
 
     # 2値化（100:２値化の閾値／画像を見て調整する）
-    ret, thresh1 = cv2.threshold(img_gray, 110, 255, cv2.THRESH_BINARY)
+    ret, thresh1 = cv2.threshold(img_gray, 100, 255, cv2.THRESH_BINARY)
     # ノイズ処理（モルフォロジー変換
-    kernel = np.ones((2, 7), np.uint8)
-    img_opening = cv2.dilate(thresh1, kernel)
-    # img_opening = cv2.morphologyEx(thresh1, cv2.MORPH_OPEN, kernel)
+    kernel = np.ones((1, 5), np.uint8)
+    img_opening = cv2.morphologyEx(thresh1, cv2.MORPH_OPEN, kernel)
 
     image = cv2pil(img_opening)
-    image.save("static/images/pillow.jpeg")
+    # image.save("static/images/pillow.jpeg")
 
     txt = tool.image_to_string(
         image, lang="jpn", builder=pyocr.builders.DigitBuilder(tesseract_layout=6)
