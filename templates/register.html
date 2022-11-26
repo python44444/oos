@@ -2,6 +2,16 @@
 利用したい車両、使用者、使用時間（開始予定時刻と終了予定時刻）、オドメーター情報（走行距離） -->
 {% extends "layout.html" %}
 {% block content %}
+
+<header class="py-3 mb-4 border-bottom">
+    <div class="container d-flex flex-wrap justify-content-center">
+    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+        <svg class="bi me-2" width="400" height="320"><use xlink:href="#bootstrap"/></svg>
+    </a>
+    </div>
+</header>
+
+
 <h1>車両利用登録</h1>
 <form action="/comfirm" method="post" enctype="multipart/form-data">
     <div>
