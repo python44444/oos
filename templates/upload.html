@@ -6,13 +6,10 @@ OCRで読み込み、利用後のメータ距離をDBに保存 -->
 <h1>オドメーター画像登録</h1>
 <form action="/upload" method="post" enctype="multipart/form-data">
     <p class="text_center">画像から走行距離を読み取ります</p>
-    <!-- <input type="file" capture="environment" name="file" value="take a photo" accept=".png, .jpeg, .jpg, .webp"> -->
-    <!-- <input type="file" capture="environment" name="file" value="take a photo" accept="image/*"> -->
-    <input type="file" name="file" value="take a photo" accept="image/*">
-    <!-- <input type="file" name="file" value="take a photo" accept=".png, .jpeg, .jpg, .webp"> -->
-    <div class="button_center">
+    <input type="file" type="submit" name="file" value="take a photo" accept="image/*">
+    <!-- <div class="button_center">
         <input type="submit" value="upload">
-    </div>
+    </div> -->
 </form>
 <p>{{ distance }}</p>
 
