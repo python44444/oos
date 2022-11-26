@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect
 from flask_login import LoginManager, login_user, login_required, logout_user
-from database import User, Cars
+from database import User, Cars, Photos
 from PIL import Image
 from ocr import display
 
@@ -172,21 +172,89 @@ def register_chinko():
 @app.route("/upload", methods=["POST"])
 def uplord_unko():
     yusou1 = request.form["yusou1"]
+    img = Image.open(yusou1)
+    img = img.resize((200, 200))
+    path = "static/images/image1.jpeg"
+    img.save(path)
+
     kyuuzyo1 = request.form["kyuuzyo1"]
+    img = Image.open(kyuuzyo1)
+    img = img.resize((200, 200))
+    path = "static/images/image2.jpeg"
+    img.save(path)
+
     kagaku1 = request.form["kagaku1"]
+    img = Image.open(kagaku1)
+    img = img.resize((200, 200))
+    path = "static/images/image3.jpeg"
+    img.save(path)
+
     tank1 = request.form["tank1"]
+    img = Image.open(tank1)
+    img = img.resize((200, 200))
+    path = "static/images/image4.jpeg"
+    img.save(path)
+
     suisou1 = request.form["suisou1"]
+    img = Image.open(suisou1)
+    img = img.resize((200, 200))
+    path = "static/images/image5.jpeg"
+    img.save(path)
     hashigo1 = request.form["hashigo1"]
+    img = Image.open(hashigo1)
+    img = img.resize((200, 200))
+    path = "static/images/image6.jpeg"
+    img.save(path)
     shien1 = request.form["shien1"]
+    img = Image.open(shien1)
+    img = img.resize((200, 200))
+    path = "static/images/image7.jpeg"
+    img.save(path)
     dankouhou1 = request.form["dankouhou1"]
+    img = Image.open(dankouhou1)
+    img = img.resize((200, 200))
+    path = "static/images/image8.jpeg"
+    img.save(path)
     rennraku11 = request.form["renraku11"]
+    img = Image.open(renraku11)
+    img = img.resize((200, 200))
+    path = "static/images/image9.jpeg"
+    img.save(path)
     renraku10 = request.form["renraku10"]
+    img = Image.open(renraku10)
+    img = img.resize((200, 200))
+    path = "static/images/image10.jpeg"
+    img.save(path)
     renraku1 = request.form["renraku1"]
+    img = Image.open(renraku1)
+    img = img.resize((200, 200))
+    path = "static/images/image11.jpeg"
+    img.save(path)
     yobisekisai = request.form["yobisekisai"]
+    img = Image.open(yobisekisai)
+    img = img.resize((200, 200))
+    path = "static/images/image12.jpeg"
+    img.save(path)
     danshirei1 = request.form["danshirei1"]
+    img = Image.open(danshirei1)
+    img = img.resize((200, 200))
+    path = "static/images/image13.jpeg"
+    img.save(path)
     danshirei20 = request.form["danshirei20"]
+    img = Image.open(danshirei20)
+    img = img.resize((200, 200))
+    path = "static/images/image14.jpeg"
+    img.save(path)
     kyuukyuu20 = request.form["kyuukyuu20"]
+    img = Image.open(kyuuzyo1)
+    img = img.resize((200, 200))
+    path = "static/images/image15.jpeg"
+    img.save(path)
     tank20 = request.form["tank20"]
+    img = Image.open(tank1)
+    img = img.resize((200, 200))
+    path = "static/images/image16.jpeg"
+    img.save(path)
 
     Photos.create(
         yusou1=yusou1,
