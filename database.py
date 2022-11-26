@@ -66,7 +66,6 @@ db.create_tables([Cars])
 
 
 class Photos(UserMixin, Model):
-    """photos Model"""
 
     yusou1 = CharField()
     kyuuzyo1 = CharField()
