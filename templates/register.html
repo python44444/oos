@@ -3,7 +3,7 @@
 {% extends "layout.html" %}
 {% block content %}
 <h1>車両利用登録</h1>
-<form action="/admin_login" method="post" enctype="multipart/form-data">
+<form action="/comfirm" method="post" enctype="multipart/form-data">
     <div>
         <div class="d-flex justify-content-evenly">
             <p>
@@ -12,13 +12,14 @@
             <p>
             <dl>
                 <dd>開始時刻<input type="time" name="start_time"></dd>
-                <dd>終了時刻<input type="time" name="endiing_time"></dd>
+                <dd>終了時刻<input type="time" name="ending_time"></dd>
             </dl>
             </p>
         </div>
         <div class="d-flex justify-content-evenly">
             <lavel>出向用務
                 <select name="select" class="sel">
+                    <option value="000" >選択してください</option>
                     <option value="001">事務連絡</option>
                     <option value="002">予防業務</option>
                     <option value="003">庶務業務</option>
@@ -47,6 +48,7 @@
             <lavel>所属
                 <select name="department">
                     <optgroup label="本部">
+                        <option value="000" >選択してください</option>
                         <option value="001">総務課</option>
                         <option value="002">消防課</option>
                         <option value="003">予防課</option>
@@ -60,6 +62,7 @@
                 <lavel>GROUP1
                     <select name="department2">
                         <optgroup label="グループ１">
+                            <option value="000" >選択してください</option>
                             <option value="001">渡辺栄郎</option>
                             <option value="002">元木隆史</option>
                             <option value="003">玉澤惇史</option>
@@ -80,6 +83,7 @@
                 <lavel>GROUP2
                     <select name="department2">
                         <optgroup label="グループ2">
+                            <option value="000" >選択してください</option>
                             <option value="001">松本哲</option>
                             <option value="002">岩渕悟</option>
                             <option value="003">佐藤慶直</option>
@@ -102,6 +106,7 @@
                 <lavel>GROUP3
                     <select name="department3">
                         <optgroup label="グループ3">
+                            <option value="000" >選択してください</option> 
                             <option value="001">千葉憲一</option>
                             <option value="002">千葉信一</option>
                             <option value="003">奥澤莞治</option>
@@ -127,6 +132,12 @@
             <p>
                 <lavel>オドメーター情報
                 <input type="text" name="odo" value="ちんこをしゃぶれ">
+                </lavel>
+            </p>
+            <p>
+            <p>
+                <lavel>給油
+                <input type="text" name="oil" value="うんこをくえ">
                 </lavel>
             </p>
             <p>
