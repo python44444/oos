@@ -63,7 +63,13 @@ def login_post():
 @app.route("/admin_login")
 @login_required
 def admin_login_post():
-    return render_template("admin_login.html")
+    details = Cars.select()
+    datas = []
+    for detail in details:
+        if detail.ODO == 0:
+            datas.append(detail)
+
+    return render_template("admin_login.html", datas=datas)
 
 
 # @app.route("/admin_login")
@@ -136,7 +142,7 @@ def register_chinko():
     for detail in details:
         if detail.ODO == 0:
             datas.append(detail)
-            
+
     return render_template("admin_login.html", datas=datas)
 
 

@@ -21,7 +21,7 @@ document.getElementById("current_date").innerHTML = month + "/" + day + "/" + ye
 
 <h1>&lt;予約一覧&gt;</h1>
 {% for data in datas%}
-<p>
+<p style="text-align: center;">
     {{ data.use_date}}
     {{ data.start_time }}
     {{ data.ending_time }}
