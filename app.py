@@ -4,7 +4,8 @@ from flask import Flask, render_template, request, redirect
 from flask_login import LoginManager, login_user, login_required, logout_user
 from database import User, Cars, Photos
 from PIL import Image
-from ocr import display
+
+# from ocr import display
 
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
@@ -27,7 +28,7 @@ def unauthorized():
     return redirect("/login")
 
 
-@app.route("/signup")
+@app.route("/")
 def signup():
     return render_template("signup.html")
 
@@ -73,15 +74,14 @@ def register():
 
 @app.route("/comfirm", methods=["POST"])
 def comfirm():
-    use_date = request.files["use_date"]
-    start_time = request.files["start_time"]
-    ending_time = request.files["ending_time"]
-    # task = request.files["task"]
-    car_select = request.files["car_select"]
-    select = request.files["select"]
-    ODO = request.files["odo"]
-    oil = request.files["oil"]
-    text = request.files["text"]
+    use_date = request.form["use_date"]
+    start_time = request.form["start_time"]
+    ending_time = request.form["ending_time"]
+    car_select = request.form["car_select"]
+    select = request.form["select"]
+    ODO = request.form["odo"]
+    oil = request.form["oil"]
+    text = request.form["text"]
 
     return render_template(
         "comfirm.html",
@@ -99,21 +99,20 @@ def comfirm():
 
 @app.route("/register_chinko", methods=["POST"])
 def register_chinko():
-    use_date = request.files["use_date"]
-    start_time = request.files["start_time"]
-    ending_time = request.files["ending_time"]
-    # task = request.files["task"]
-    car_select = request.files["car_select"]
-    select = request.files["select"]
-    ODO = request.files["ODO"]
-    oil = request.files["oil"]
-    text = request.files["text"]
+    use_date = request.form["use_date"]
+    start_time = request.form["start_time"]
+    ending_time = request.form["ending_time"]
+    car_select = request.form["car_select"]
+    select = request.form["select"]
+    ODO = request.form["ODO"]
+    oil = request.form["oil"]
+    text = request.form["text"]
 
     Cars.create(
         use_date=use_date,
         start_time=start_time,
         ending_time=ending_time,
-        task="ちんこ",
+        task="",
         car_select=car_select,
         select=select,
         ODO=ODO,
@@ -134,7 +133,7 @@ def upload():
 # def upload_get():
 #     file = request.files["file"]
 #     img = Image.open(file)
-    # img = img.resize((200, 200))
+# img = img.resize((200, 200))
 #     path = "static/images/image.jpeg"
 #     img.save(path)
 #     out = display(path)
@@ -145,21 +144,20 @@ def upload():
 
 
 def register_chinko():
-    use_date = request.files["use_date"]
-    start_time = request.files["start_time"]
-    endiing_time = request.files["endiing_time"]
-    # task = request.files["task"]
-    car_select = request.files["car_select"]
-    select = request.files["select"]
-    ODO = request.files["odo"]
-    oil = request.files["oil"]
-    text = request.files["text"]
+    use_date = request.form["use_date"]
+    start_time = request.form["start_time"]
+    endiing_time = request.form["endiing_time"]
+    car_select = request.form["car_select"]
+    select = request.form["select"]
+    ODO = request.form["odo"]
+    oil = request.form["oil"]
+    text = request.form["text"]
 
     Cars.create(
         use_date=use_date,
         start_time=start_time,
         endiing_time=endiing_time,
-        task="ちんこ",
+        task="",
         car_select=car_select,
         select=select,
         ODO=ODO,
@@ -286,7 +284,11 @@ def upload_unko():
         kyuukyuu20=path15,
         tank20=path16,
     )
-    return render_template("upload.html")
+
+    photo_datas = Photos.select()
+    size = photo_datas
+    photo_data = Photos.get(id=size)
+    return render_template("car.html", photo_data=photo_data)
 
 
 @app.route("/admin_logout")
@@ -295,12 +297,12 @@ def admin_logout():
     return redirect("/")
 
 
-
 @app.route("/")
 @login_required
 def index():
     current_time = datetime.datetime.now()
     return render_template("index.html", current_time=current_time)
+
 
 # トップページにログアウトボタンを作成する。
 @app.route("/logout", methods=["POST"])

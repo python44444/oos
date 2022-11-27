@@ -1,8 +1,9 @@
 import pyocr
 from PIL import Image
 import cv2
-import numpy as np
 
+import numpy as np
+from ocr import display
 tools = pyocr.get_available_tools()
 tool = tools[0]
 photo = "static/images/image.jpeg"
