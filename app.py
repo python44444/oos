@@ -101,18 +101,18 @@ def comfirm():
 def register_chinko():
     use_date = request.form["use_date"]
     start_time = request.form["start_time"]
-    endiing_time = request.form["endiing_time"]
+    ending_time = request.form["ending_time"]
     # task = request.form["task"]
     car_select = request.form["car_select"]
     select = request.form["select"]
-    ODO = request.form["odo"]
+    ODO = request.form["ODO"]
     oil = request.form["oil"]
     text = request.form["text"]
 
     Cars.create(
         use_date=use_date,
         start_time=start_time,
-        endiing_time=endiing_time,
+        ending_time=ending_time,
         task="ちんこ",
         car_select=car_select,
         select=select,
@@ -120,7 +120,7 @@ def register_chinko():
         oil=oil,
         text=text,
     )
-    return render_template("uplord.html")
+    return render_template("upload.html")
 
 
 @app.route("/upload")
@@ -144,34 +144,34 @@ def upload_get():
 # app.route("/register_chinko", methods=["POST"])
 
 
-# def register_unko():
-#     use_date = request.form["use_date"]
-#     start_time = request.form["start_time"]
-#     endiing_time = request.form["endiing_time"]
-#     # task = request.form["task"]
-#     car_select = request.form["car_select"]
-#     select = request.form["select"]
-#     ODO = request.form["odo"]
-#     oil = request.form["oil"]
-#     text = request.form["text"]
+def register_chinko():
+    use_date = request.form["use_date"]
+    start_time = request.form["start_time"]
+    endiing_time = request.form["endiing_time"]
+    # task = request.form["task"]
+    car_select = request.form["car_select"]
+    select = request.form["select"]
+    ODO = request.form["odo"]
+    oil = request.form["oil"]
+    text = request.form["text"]
 
-#     Cars.create(
-#         use_date=use_date,
-#         start_time=start_time,
-#         endiing_time=endiing_time,
-#         task="ちんこ",
-#         car_select=car_select,
-#         select=select,
-#         ODO=ODO,
-#         oil=oil,
-#         text=text,
-#     )
-#     return render_template("uplord.html")
+    Cars.create(
+        use_date=use_date,
+        start_time=start_time,
+        endiing_time=endiing_time,
+        task="ちんこ",
+        car_select=car_select,
+        select=select,
+        ODO=ODO,
+        oil=oil,
+        text=text,
+    )
+    return render_template("uplord.html")
 
 
 # uploed画像データベース
 @app.route("/upload", methods=["POST"])
-def uplord_unko():
+def upload_unko():
     yusou1 = request.form["yusou1"]
     img1 = Image.open(yusou1)
     img1.resize((200, 200))
