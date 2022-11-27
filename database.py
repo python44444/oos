@@ -7,7 +7,7 @@ from peewee import (
     Model,
     IntegerField,
     CharField,
-    CharField,
+    FloatField,
     TimestampField,
     DateField,
     CharField,
@@ -52,8 +52,8 @@ class Cars(UserMixin, Model):
     ending_time = DateField()
     task = CharField()
     car_select = CharField()
-    select = CharField()
-    ODO = CharField()
+    member_select = CharField()
+    ODO = IntegerField()
     oil = CharField()
     text = CharField()
 

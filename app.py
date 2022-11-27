@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect
 from flask_login import LoginManager, login_user, login_required, logout_user
-from database import User, Cars
+from database import User, Cars, Photos
 from PIL import Image
 from ocr import display
 
@@ -47,6 +47,23 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/dashboard")
+def dashboard():
+    details = Cars.select()
+    datas = []
+    for detail in details:
+        if detail.ODO == 0:
+            # datas.append(detail.id)
+            # datas.append(detail.use_date)
+            # datas.append(detail.start_time)
+            # datas.append(detail.ending_time)
+            # datas.append(detail.task)
+            # datas.append(detail.car_select)
+            # datas.append(detail.ODO)
+            datas.append(detail)
+    return render_template("dashboard.html", datas=datas)
+
+
 @app.route("/login_user", methods=["POST"])
 def login_post():
     name = request.form["name"]
@@ -77,7 +94,7 @@ def comfirm():
     ending_time = request.form["ending_time"]
     # task = request.form["task"]
     car_select = request.form["car_select"]
-    select = request.form["select"]
+    member_select = request.form["member_select"]
     ODO = request.form["odo"]
     oil = request.form["oil"]
     text = request.form["text"]
@@ -89,7 +106,7 @@ def comfirm():
         ending_time=ending_time,
         task="ちんこ",
         car_select=car_select,
-        select=select,
+        member_select=member_select,
         ODO=ODO,
         oil=oil,
         text=text,
@@ -103,7 +120,7 @@ def register_chinko():
     ending_time = request.form["ending_time"]
     # task = request.form["task"]
     car_select = request.form["car_select"]
-    select = request.form["select"]
+    member_select = request.form["member_select"]
     ODO = request.form["ODO"]
     oil = request.form["oil"]
     text = request.form["text"]
@@ -114,7 +131,7 @@ def register_chinko():
         ending_time=ending_time,
         task="ちんこ",
         car_select=car_select,
-        select=select,
+        member_select=member_select,
         ODO=ODO,
         oil=oil,
         text=text,
@@ -141,31 +158,6 @@ def upload_get():
 
 
 app.route("/register_chinko", methods=["POST"])
-
-
-def register_chinko():
-    use_date = request.form["use_date"]
-    start_time = request.form["start_time"]
-    ending_time = request.form["ending_time"]
-    # task = request.form["task"]
-    car_select = request.form["car_select"]
-    select = request.form["select"]
-    ODO = request.form["odo"]
-    oil = request.form["oil"]
-    text = request.form["text"]
-
-    Cars.create(
-        use_date=use_date,
-        start_time=start_time,
-        ending_time=ending_time,
-        task="ちんこ",
-        car_select=car_select,
-        select=select,
-        ODO=ODO,
-        oil=oil,
-        text=text,
-    )
-    return render_template("upload.html")
 
 
 # uploed画像データベース
