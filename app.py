@@ -119,7 +119,7 @@ def register_chinko():
         oil=oil,
         text=text,
     )
-    return render_template("upload.html")
+    return render_template("admin_login.html")
 
 
 @app.route("/upload")
