@@ -48,6 +48,23 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/dashboard")
+def dashboard():
+    details = Cars.select()
+    datas = []
+    for detail in details:
+        if detail.ODO == 0:
+            # datas.append(detail.id)
+            # datas.append(detail.use_date)
+            # datas.append(detail.start_time)
+            # datas.append(detail.ending_time)
+            # datas.append(detail.task)
+            # datas.append(detail.car_select)
+            # datas.append(detail.ODO)
+            datas.append(detail)
+    return render_template("dashboard.html", datas=datas)
+
+
 @app.route("/login_user", methods=["POST"])
 def login_post():
     name = request.form["name"]
@@ -73,15 +90,15 @@ def register():
 
 @app.route("/comfirm", methods=["POST"])
 def comfirm():
-    use_date = request.files["use_date"]
-    start_time = request.files["start_time"]
-    ending_time = request.files["ending_time"]
-    # task = request.files["task"]
-    car_select = request.files["car_select"]
-    select = request.files["select"]
-    ODO = request.files["odo"]
-    oil = request.files["oil"]
-    text = request.files["text"]
+    use_date = request.form["use_date"]
+    start_time = request.form["start_time"]
+    ending_time = request.form["ending_time"]
+    # task = request.form["task"]
+    car_select = request.form["car_select"]
+    member_select = request.form["member_select"]
+    ODO = request.form["odo"]
+    oil = request.form["oil"]
+    text = request.form["text"]
 
     return render_template(
         "comfirm.html",
@@ -90,7 +107,7 @@ def comfirm():
         ending_time=ending_time,
         task="ちんこ",
         car_select=car_select,
-        select=select,
+        member_select=member_select,
         ODO=ODO,
         oil=oil,
         text=text,
@@ -99,15 +116,15 @@ def comfirm():
 
 @app.route("/register_chinko", methods=["POST"])
 def register_chinko():
-    use_date = request.files["use_date"]
-    start_time = request.files["start_time"]
-    ending_time = request.files["ending_time"]
-    # task = request.files["task"]
-    car_select = request.files["car_select"]
-    select = request.files["select"]
-    ODO = request.files["ODO"]
-    oil = request.files["oil"]
-    text = request.files["text"]
+    use_date = request.form["use_date"]
+    start_time = request.form["start_time"]
+    ending_time = request.form["ending_time"]
+    # task = request.form["task"]
+    car_select = request.form["car_select"]
+    member_select = request.form["member_select"]
+    ODO = request.form["ODO"]
+    oil = request.form["oil"]
+    text = request.form["text"]
 
     Cars.create(
         use_date=use_date,
@@ -115,12 +132,12 @@ def register_chinko():
         ending_time=ending_time,
         task="ちんこ",
         car_select=car_select,
-        select=select,
+        member_select=member_select,
         ODO=ODO,
         oil=oil,
         text=text,
     )
-    return render_template("upload.html")
+    return render_template("admin_login.html")
 
 
 @app.route("/upload")
@@ -142,31 +159,6 @@ def upload():
 
 
 # app.route("/register_chinko", methods=["POST"])
-
-
-def register_chinko():
-    use_date = request.files["use_date"]
-    start_time = request.files["start_time"]
-    endiing_time = request.files["endiing_time"]
-    # task = request.files["task"]
-    car_select = request.files["car_select"]
-    select = request.files["select"]
-    ODO = request.files["odo"]
-    oil = request.files["oil"]
-    text = request.files["text"]
-
-    Cars.create(
-        use_date=use_date,
-        start_time=start_time,
-        endiing_time=endiing_time,
-        task="ちんこ",
-        car_select=car_select,
-        select=select,
-        ODO=ODO,
-        oil=oil,
-        text=text,
-    )
-    return render_template("uplord.html")
 
 
 # uploed画像データベース
