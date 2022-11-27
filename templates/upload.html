@@ -4,319 +4,181 @@ OCRで読み込み、利用後のメータ距離をDBに保存 -->
 {% block content %}
 
 <h1>ODOメーター画像登録</h1>
-<<<<<<< HEAD
 <div class="up-text-arign">
     <p>{{ distance }}</p>
     <p>画像から走行距離を読み取ります</p>
     <!-- <p>{{ path }}</p> -->
     <!-- <form action="/upload" method="post" enctype="multipart/form-data"> -->
-        <!-- <p class="text_center">画像から走行距離を読み取ります</p> -->
-        <!-- <input type="file" capture="environment" name="file" value="take a photo" accept=".png, .jpeg, .jpg, .webp"> -->
-        <!-- <input type="file" capture="environment" name="file" value="take a photo" accept="image/*"> -->
-        <div class="d-flex justify-content-evenly">
-            <table class="table table-striped line-hight">
-                <tr>
-                    <th>輸送１</th>
-                    <td>
-=======
-<p>{{ distance }}</p>
-画像から走行距離を読み取ります
-<!-- <p>{{ path }}</p> -->
-<p>
-<h2>輸送１</h2>
-<form action="/upload" method="post" enctype="multipart/form-data">
-    <p class="text_center">画像から走行距離を読み取ります</p>
+    <!-- <p class="text_center">画像から走行距離を読み取ります</p> -->
     <!-- <input type="file" capture="environment" name="file" value="take a photo" accept=".png, .jpeg, .jpg, .webp"> -->
     <!-- <input type="file" capture="environment" name="file" value="take a photo" accept="image/*"> -->
-    <input type="file" name="file" value="take a photo" accept="image/*">
-    <!-- <input type="file" name="file" value="take a photo" accept=".png, .jpeg, .jpg, .webp"> -->
-    <div class="button_center">
-        </p>
-        <img src={{ path1 }} alt="">
-        <p>
-        <h2>救助１</h2>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <p class="text_center"></p>
-            <input type="file" name="file" value="yusou1" accept="image/*">
-            <div class="button_center">
-                </p>
-                <img src={{ path2 }} alt="">
-                <p>
-                <h2>化学１</h2>
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <p class="text_center"></p>
-                    <input type="file" name="file" value="take a photo" accept="image/*">
-                    <div class="button_center">
-                        </p>
-                        <img src={{ path3 }} alt="">
-                        <p>
-                        <h2>タンク１</h2>
->>>>>>> 540221039467a29a95f9c2b7c3cfd419db42ec69
-                        <form action="/upload" method="post" enctype="multipart/form-data">
+    <div class="d-flex justify-content-evenly">
+        <table class="table table-striped line-hight">
+            <tr>
+                <th>輸送１</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
                         <input type="file" name="file" value="take a photo" accept="image/*">
                         <!-- <input type="file" name="file" value="take a photo" accept=".png, .jpeg, .jpg, .webp"> -->
                         <!-- <div class="button_center"> -->
-                            <img src={{ yusou1 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>救助１</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-<<<<<<< HEAD
-                            <!-- <div class="button_center"> -->
-                            <img src={{ kyuuzyo1 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>化学１</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ kagaku1 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>タンク１</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ tank1 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>水槽１</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ suisou1 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>梯子１</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ hashigo1 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>支援１</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ shien1 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>団広報１</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ dankouhou1 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>連絡１０</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" renraku11renname="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ renraku10}} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>連絡１１</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ renraku11 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>連絡１</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ renraku1 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>予備積載車</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ yobisekisai }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>団指令１</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ danshirei1 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>団指令２０</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ danshirei20 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>救急２０</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ kyuukyuu20 }} alt="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>タンク２０</th>
-                    <td>
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- <p class="text_center"></p> -->
-                            <input type="file" name="file" value="take a photo" accept="image/*">
-                            <!-- <div class="button_center"> -->
-                            <img src={{ tank20 }} alt="">
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <input type="submit" value="upload">
+                        <img src={{ yusou1 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>救助１</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ kyuuzyo1 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>化学１</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ kagaku1 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>タンク１</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ tank1 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>水槽１</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ suisou1 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>梯子１</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ hashigo1 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>支援１</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ shien1 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>団広報１</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ dankouhou1 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>連絡１０</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" renraku11renname="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ renraku10}} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>連絡１１</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ renraku11 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>連絡１</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ renraku1 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>予備積載車</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ yobisekisai }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>団指令１</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ danshirei1 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>団指令２０</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ danshirei20 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>救急２０</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ kyuukyuu20 }} alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>タンク２０</th>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- <p class="text_center"></p> -->
+                        <input type="file" name="file" value="take a photo" accept="image/*">
+                        <!-- <div class="button_center"> -->
+                        <img src={{ tank20 }} alt="">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <input type="submit" value="upload">
     </form>
     <button onclick="location.href='/register'">back</button>
-=======
-                            <div class="button_center">
-                                </p>
-                                <img src={{ path4 }} alt="">
-                                <p>
-                                <h2>水槽１</h2>
-                                <form action="/upload" method="post" enctype="multipart/form-data">
-                                    <p class="text_center"></p>
-                                    <input type="file" name="file" value="take a photo" accept="image/*">
-                                    <div class="button_center">
-                                        </p>
-                                        <img src={{ path5 }} alt="">
-                                        <p>
-                                        <h2>梯子１</h2>
-                                        <form action="/upload" method="post" enctype="multipart/form-data">
-                                            <p class="text_center"></p>
-                                            <input type="file" name="file" value="take a photo" accept="image/*">
-                                            <div class="button_center">
-                                                </p>
-                                                <img src={{ path6 }} alt="">
-                                                <p>
-                                                <h2>支援１</h2>
-                                                <form action="/upload" method="post" enctype="multipart/form-data">
-                                                    <p class="text_center"></p>
-                                                    <input type="file" name="file" value="take a photo" accept="image/*">
-                                                    <div class="button_center">
-                                                        </p>
-                                                        <img src={{ path7 }} alt="">
-                                                        <p>
-                                                        <h2>団広報１</h2>
-                                                        <form action="/upload" method="post" enctype="multipart/form-data">
-                                                            <p class="text_center"></p>
-                                                            <input type="file" name="file" value="take a photo" accept="image/*">
-                                                            <div class="button_center">
-                                                                </p>
-                                                                <img src={{ path8 }} alt="">
-                                                                <p>
-                                                                <h2>連絡１０</h2>
-                                                                <form action="/upload" method="post" enctype="multipart/form-data">
-                                                                    <p class="text_center"></p>
-                                                                    <input type="file" renraku11renname="file" value="take a photo" accept="image/*">
-                                                                    <div class="button_center">
-                                                                        </p>
-                                                                        <img src={{ path9 }} alt="">
-                                                                        <p>
-                                                                        <h2>連絡１１</h2>
-                                                                        <form action="/upload" method="post" enctype="multipart/form-data">
-                                                                            <p class="text_center"></p>
-                                                                            <input type="file" name="file" value="take a photo" accept="image/*">
-                                                                            <div class="button_center">
-                                                                                </p>
-                                                                                <img src={{ path10 }} alt="">
-                                                                                <p>
-                                                                                <h2>連絡１</h2>
-                                                                                <form action="/upload" method="post" enctype="multipart/form-data">
-                                                                                    <p class="text_center"></p>
-                                                                                    <input type="file" name="file" value="take a photo" accept="image/*">
-                                                                                    <div class="button_center">
-                                                                                        </p>
-                                                                                        <img src={{ path11 }} alt="">
-                                                                                        <p>
-                                                                                        <h2>予備積載車</h2>
-                                                                                        <form action="/upload" method="post" enctype="multipart/form-data">
-                                                                                            <p class="text_center"></p>
-                                                                                            <input type="file" name="file" value="take a photo" accept="image/*">
-                                                                                            <div class="button_center">
-                                                                                                </p>
-                                                                                                <img src={{ path12 }} alt="">
-                                                                                                <p>
-                                                                                                <h2>団指令１</h2>
-                                                                                                <form action="/upload" method="post" enctype="multipart/form-data">
-                                                                                                    <p class="text_center"></p>
-                                                                                                    <input type="file" name="file" value="take a photo" accept="image/*">
-                                                                                                    <div class="button_center">
-                                                                                                        </p>
-                                                                                                        <img src={{ path13 }} alt="">
-                                                                                                        <p>
-                                                                                                        <h2>団指令２０</h2>
-                                                                                                        <form action="/upload" method="post" enctype="multipart/form-data">
-                                                                                                            <p class="text_center"></p>
-                                                                                                            <input type="file" name="file" value="take a photo" accept="image/*">
-                                                                                                            <div class="button_center">
-                                                                                                                </p>
-                                                                                                                <img src={{ path14 }} alt="">
-                                                                                                                <p>
-                                                                                                                <h2>救急２０</h2>
-                                                                                                                <form action="/upload" method="post" enctype="multipart/form-data">
-                                                                                                                    <p class="text_center"></p>
-                                                                                                                    <input type="file" name="file" value="take a photo" accept="image/*">
-                                                                                                                    <div class="button_center">
-                                                                                                                        </p>
-                                                                                                                        <img src={{ path15 }} alt="">
-                                                                                                                        <p>
-                                                                                                                        <h2>タンク２０</h2>
-                                                                                                                        <form action="/upload" method="post" enctype="multipart/form-data">
-                                                                                                                            <p class="text_center"></p>
-                                                                                                                            <input type="file" name="file" value="take a photo" accept="image/*">
-                                                                                                                            <div class="button_center">
-                                                                                                                                </p>
-                                                                                                                                <img src={{ path16 }} alt="">
->>>>>>> 540221039467a29a95f9c2b7c3cfd419db42ec69
-
 </div>
 </body>
 {% endblock %}
