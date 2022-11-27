@@ -10,15 +10,24 @@
 
 <body>
     <form action="/register_chinko" method="post">
-        <input type="hidden" name="use_date">{{ use_date }}</p>
-        <input type="hidden" name="start_time">{{ start_time }}</p>
-        <input type="hidden" name="ending_time">{{ ending_time }}</p>
-        <input type="hidden" name="task">{{ task }}</p>
-        <input type="hidden" name="car_select">{{ car_select }}</p>
-        <input type="hidden" name="select">{{ select }}</p>
-        <input type="hidden" name="ODO">{{ ODO }}</p>
-        <input type="hidden" name="oil">{{ oil }}</p>
-        <input type="hidden" name="text">{{ text }}</p>
+        <input type="hidden" name="use_date" value={{ use_date }}>
+        <p>{{ use_data }}</p>
+        <input type="hidden" name="start_time" value={{ start_time }}>
+        <p>{{ start_time }}</p>
+        <input type="hidden" name="ending_time" value={{ ending_time }}>
+        <p>{{ ending_time }}</p>
+        <input type="hidden" name="task" value={{ task }}>
+        <p>{{ task }}</p>
+        <input type="hidden" name="car_select" value={{ car_select }}>
+        <p>{{ car_select }}</p>
+        <input type="hidden" name="member_select" value={{ select }}>
+        <p>{{ select }}</p>
+        <input type="hidden" name="ODO" value={{ ODO }}>
+        <p>{{ ODO }}</p>
+        <input type="hidden" name="oil" value={{ oil }}>
+        <p>{{ oil }}</p>
+        <input type="hidden" name="text" value={{ text }}>
+        <p>{{ text }}</p>
 
         <input type="submit" value="comfirm">
     </form>

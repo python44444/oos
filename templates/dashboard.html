@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>予約一覧</h1>
+{% for data in datas%}
+<p>
+    {{ data.use_date}}
+    {{ data.start_time }}
+    {{ data.ending_time }}
+    {{ data.task }}
+    {{ data.car_select }}
+    {{ data.member_select }}
+    {{ data.ODO }}
+    {{ data.oil }}
+    {{ data.text }}
+</p>
+{% endfor %}
+
+{% endblock %}

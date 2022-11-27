@@ -6,7 +6,7 @@ import numpy as np
 from ocr import display
 tools = pyocr.get_available_tools()
 tool = tools[0]
-photo = "static/images/image.jpeg"
+# photo = "static/images/image.jpeg"
 
 
 def cv2pil(image):
@@ -59,5 +59,5 @@ def display(photo):
     return out
 
 
-out = display(photo)
-print(out)
+# out = display(photo)
+# print(out)

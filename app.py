@@ -64,7 +64,23 @@ def login_post():
 @app.route("/admin_login")
 @login_required
 def admin_login_post():
-    return render_template("admin_login.html")
+    details = Cars.select()
+    datas = []
+    for detail in details:
+        if detail.ODO == 0:
+            datas.append(detail)
+
+    return render_template("admin_login.html", datas=datas)
+
+
+# @app.route("/admin_login")
+# def reservations():
+#     details = Cars.select()
+#     datas = []
+#     for detail in details:
+#         if detail.ODO == 0:
+#             datas.append(detail)
+#     return render_template("admin_login.html", datas=datas)
 
 
 @app.route("/register", methods=["GET"])
@@ -77,8 +93,14 @@ def comfirm():
     use_date = request.form["use_date"]
     start_time = request.form["start_time"]
     ending_time = request.form["ending_time"]
+<<<<<<< HEAD
     car_select = request.form["car_select"]
     select = request.form["select"]
+=======
+    # task = request.form["task"]
+    car_select = request.form["car_select"]
+    member_select = request.form["member_select"]
+>>>>>>> dd41efea4f62426c2d8bb247ca764d1e70dbc21c
     ODO = request.form["odo"]
     oil = request.form["oil"]
     text = request.form["text"]
@@ -88,9 +110,9 @@ def comfirm():
         use_date=use_date,
         start_time=start_time,
         ending_time=ending_time,
-        task="ちんこ",
+        task="terminating",
         car_select=car_select,
-        select=select,
+        member_select=member_select,
         ODO=ODO,
         oil=oil,
         text=text,
@@ -102,8 +124,14 @@ def register_chinko():
     use_date = request.form["use_date"]
     start_time = request.form["start_time"]
     ending_time = request.form["ending_time"]
+<<<<<<< HEAD
     car_select = request.form["car_select"]
     select = request.form["select"]
+=======
+    # task = request.form["task"]
+    car_select = request.form["car_select"]
+    member_select = request.form["member_select"]
+>>>>>>> dd41efea4f62426c2d8bb247ca764d1e70dbc21c
     ODO = request.form["ODO"]
     oil = request.form["oil"]
     text = request.form["text"]
@@ -112,14 +140,25 @@ def register_chinko():
         use_date=use_date,
         start_time=start_time,
         ending_time=ending_time,
+<<<<<<< HEAD
         task="",
+=======
+        task="terminating",
+>>>>>>> dd41efea4f62426c2d8bb247ca764d1e70dbc21c
         car_select=car_select,
-        select=select,
+        member_select=member_select,
         ODO=ODO,
         oil=oil,
         text=text,
     )
-    return render_template("upload.html")
+
+    details = Cars.select()
+    datas = []
+    for detail in details:
+        if detail.ODO == 0:
+            datas.append(detail)
+
+    return render_template("admin_login.html", datas=datas)
 
 
 @app.route("/upload")
@@ -140,6 +179,7 @@ def upload():
 #     return render_template("upload.html", distance=out, path=path)
 
 
+<<<<<<< HEAD
 # app.route("/register_chinko", methods=["POST"])
 
 
@@ -167,6 +207,8 @@ def register_chinko():
     return render_template("uplord.html")
 
 
+=======
+>>>>>>> dd41efea4f62426c2d8bb247ca764d1e70dbc21c
 # uploed画像データベース
 @app.route("/upload", methods=["POST"])
 def upload_unko():

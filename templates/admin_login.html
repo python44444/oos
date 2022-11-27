@@ -20,6 +20,19 @@ document.getElementById("current_date").innerHTML = month + "/" + day + "/" + ye
 <img src="{{ outfile }}" alt="">
 
 <h1>&lt;予約一覧&gt;</h1>
+{% for data in datas%}
+<p style="text-align: center;">
+    {{ data.use_date}}
+    {{ data.start_time }}
+    {{ data.ending_time }}
+    {{ data.task }}
+    {{ data.car_select }}
+    {{ data.member_select }}
+    {{ data.ODO }}
+    {{ data.oil }}
+    {{ data.text }}
+</p>
+{% endfor %}
 
 <h1>&lt;使用車両&gt;</h1>
 {% endblock %}
