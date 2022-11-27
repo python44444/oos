@@ -3,16 +3,23 @@
 {% block content %}
 
 
-<h1 class="admin_login_h1">お疲れさまです</h1>
+<!-- <script>
+date = new Date();
+year = date.getFullYear();
+month = date.getMonth() + 1;
+day = date.getDate();
+document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
+</script> -->
+<h1>選択してください</h1>
+
 <div class="btn-wrap">
     <input type="button" onclick="location.href='/register'" value="車両登録" class="btn btn-outline-dark">
-    <input type="button" onclick="location.href='/upload'" value="距離を取る" class="btn btn-outline-dark">
+    <input type="button" onclick="location.href='/upload'" value="運行記録" class="btn btn-outline-dark">
 </div>
 <p>{{ outfile }}</p>
 <img src="{{ outfile }}" alt="">
 
-<h2>予約一覧</h2>
-<p>
-<h3>使用車両</h3>
-</p>
+<h1>&lt;予約一覧&gt;</h1>
+
+<h1>&lt;使用車両&gt;</h1>
 {% endblock %}

@@ -1,7 +1,8 @@
-import datetime
+# import datetime
 import os
 from playhouse.db_url import connect
 from dotenv import load_dotenv
+
 # from flask import current_user
 from peewee import (
     Model,
@@ -67,6 +68,7 @@ db.create_tables([Cars])
 
 class Photos(UserMixin, Model):
 
+    id = IntegerField(primary_key=True)
     yusou1 = CharField()
     kyuuzyo1 = CharField()
     kagaku1 = CharField()
@@ -86,7 +88,7 @@ class Photos(UserMixin, Model):
 
     class Meta:
         database = db
-        table_name = "Photos"
+        table_name = "photos"
 
 
 db.create_tables([Photos])
