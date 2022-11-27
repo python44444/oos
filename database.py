@@ -86,7 +86,7 @@ class Photos(UserMixin, Model):
 
     class Meta:
         database = db
-        table_name = "Photos"
+        table_name = "photos"
 
 
 db.create_tables([Photos])
