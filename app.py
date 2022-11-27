@@ -48,23 +48,6 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/dashboard")
-def dashboard():
-    details = Cars.select()
-    datas = []
-    for detail in details:
-        if detail.ODO == 0:
-            # datas.append(detail.id)
-            # datas.append(detail.use_date)
-            # datas.append(detail.start_time)
-            # datas.append(detail.ending_time)
-            # datas.append(detail.task)
-            # datas.append(detail.car_select)
-            # datas.append(detail.ODO)
-            datas.append(detail)
-    return render_template("dashboard.html", datas=datas)
-
-
 @app.route("/login_user", methods=["POST"])
 def login_post():
     name = request.form["name"]
@@ -81,6 +64,16 @@ def login_post():
 @login_required
 def admin_login_post():
     return render_template("admin_login.html")
+
+
+# @app.route("/admin_login")
+# def reservations():
+#     details = Cars.select()
+#     datas = []
+#     for detail in details:
+#         if detail.ODO == 0:
+#             datas.append(detail)
+#     return render_template("admin_login.html", datas=datas)
 
 
 @app.route("/register", methods=["GET"])
@@ -105,7 +98,7 @@ def comfirm():
         use_date=use_date,
         start_time=start_time,
         ending_time=ending_time,
-        task="ちんこ",
+        task="terminating",
         car_select=car_select,
         member_select=member_select,
         ODO=ODO,
@@ -130,14 +123,21 @@ def register_chinko():
         use_date=use_date,
         start_time=start_time,
         ending_time=ending_time,
-        task="ちんこ",
+        task="terminating",
         car_select=car_select,
         member_select=member_select,
         ODO=ODO,
         oil=oil,
         text=text,
     )
-    return render_template("admin_login.html")
+
+    details = Cars.select()
+    datas = []
+    for detail in details:
+        if detail.ODO == 0:
+            datas.append(detail)
+            
+    return render_template("admin_login.html", datas=datas)
 
 
 @app.route("/upload")
@@ -151,14 +151,11 @@ def upload():
 # def upload_get():
 #     file = request.files["file"]
 #     img = Image.open(file)
-    # img = img.resize((200, 200))
+# img = img.resize((200, 200))
 #     path = "static/images/image.jpeg"
 #     img.save(path)
 #     out = display(path)
 #     return render_template("upload.html", distance=out, path=path)
-
-
-# app.route("/register_chinko", methods=["POST"])
 
 
 # uploed画像データベース
@@ -287,12 +284,12 @@ def admin_logout():
     return redirect("/")
 
 
-
 @app.route("/")
 @login_required
 def index():
     current_time = datetime.datetime.now()
     return render_template("index.html", current_time=current_time)
+
 
 # トップページにログアウトボタンを作成する。
 @app.route("/logout", methods=["POST"])
