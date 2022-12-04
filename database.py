@@ -1,5 +1,5 @@
 # import datetime
-import os
+# import os
 from playhouse.db_url import connect
 from dotenv import load_dotenv
 
@@ -51,9 +51,12 @@ class Cars(UserMixin, Model):
     use_date = CharField()  # idは自動で追加されるが明示
     start_time = DateField()
     ending_time = DateField()
-    task = CharField()
+    task_select = DateField()
     car_select = CharField()
-    member_select = CharField()
+    affiliation_select = CharField()
+    member_select1 = CharField()
+    member_select2 = CharField()
+    member_select3 = CharField()
     ODO = IntegerField()
     oil = CharField()
     text = CharField()
