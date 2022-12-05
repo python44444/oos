@@ -93,14 +93,9 @@ def comfirm():
     use_date = request.form["use_date"]
     start_time = request.form["start_time"]
     ending_time = request.form["ending_time"]
-<<<<<<< HEAD
-    car_select = request.form["car_select"]
-    select = request.form["select"]
-=======
     # task = request.form["task"]
     car_select = request.form["car_select"]
     member_select = request.form["member_select"]
->>>>>>> dd41efea4f62426c2d8bb247ca764d1e70dbc21c
     ODO = request.form["odo"]
     oil = request.form["oil"]
     text = request.form["text"]
@@ -124,14 +119,9 @@ def register_chinko():
     use_date = request.form["use_date"]
     start_time = request.form["start_time"]
     ending_time = request.form["ending_time"]
-<<<<<<< HEAD
-    car_select = request.form["car_select"]
-    select = request.form["select"]
-=======
     # task = request.form["task"]
     car_select = request.form["car_select"]
     member_select = request.form["member_select"]
->>>>>>> dd41efea4f62426c2d8bb247ca764d1e70dbc21c
     ODO = request.form["ODO"]
     oil = request.form["oil"]
     text = request.form["text"]
@@ -140,11 +130,7 @@ def register_chinko():
         use_date=use_date,
         start_time=start_time,
         ending_time=ending_time,
-<<<<<<< HEAD
-        task="",
-=======
         task="terminating",
->>>>>>> dd41efea4f62426c2d8bb247ca764d1e70dbc21c
         car_select=car_select,
         member_select=member_select,
         ODO=ODO,
@@ -179,36 +165,6 @@ def upload():
 #     return render_template("upload.html", distance=out, path=path)
 
 
-<<<<<<< HEAD
-# app.route("/register_chinko", methods=["POST"])
-
-
-def register_chinko():
-    use_date = request.form["use_date"]
-    start_time = request.form["start_time"]
-    endiing_time = request.form["endiing_time"]
-    car_select = request.form["car_select"]
-    select = request.form["select"]
-    ODO = request.form["odo"]
-    oil = request.form["oil"]
-    text = request.form["text"]
-
-    Cars.create(
-        use_date=use_date,
-        start_time=start_time,
-        endiing_time=endiing_time,
-        task="",
-        car_select=car_select,
-        select=select,
-        ODO=ODO,
-        oil=oil,
-        text=text,
-    )
-    return render_template("uplord.html")
-
-
-=======
->>>>>>> dd41efea4f62426c2d8bb247ca764d1e70dbc21c
 # uploed画像データベース
 @app.route("/upload", methods=["POST"])
 def upload_unko():
