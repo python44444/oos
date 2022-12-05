@@ -93,15 +93,13 @@ def comfirm():
     use_date = request.form["use_date"]
     start_time = request.form["start_time"]
     ending_time = request.form["ending_time"]
-    member_select = request.form["member_select"]
-    ODO = request.form["odo"]
     task_select = request.form["task_select"]
     car_select = request.form["car_select"]
     affiliation_select = request.form["affiliation_select"]
     department1 = request.form["department1"]
     department2 = request.form["department2"]
     department3 = request.form["department3"]
-    ODO = request.form["ODO"]
+    ODO = request.form["odo"]
     oil = request.form["oil"]
     text = request.form["text"]
 
@@ -127,8 +125,6 @@ def register_chinko():
     use_date = request.form["use_date"]
     start_time = request.form["start_time"]
     ending_time = request.form["ending_time"]
-    # task = request.form["task"]
-    member_select = request.form["member_select"]
     task_select = request.form["task_select"]
     car_select = request.form["car_select"]
     affiliation_select = request.form["affiliation_select"]
@@ -143,7 +139,7 @@ def register_chinko():
         use_date=use_date,
         start_time=start_time,
         ending_time=ending_time,
-        task="terminating",
+        task_select=task_select,
         car_select=car_select,
         affiliation_select=affiliation_select,
         department1=department1,
