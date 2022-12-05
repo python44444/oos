@@ -99,7 +99,7 @@ def comfirm():
     department1 = request.form["department1"]
     department2 = request.form["department2"]
     department3 = request.form["department3"]
-    ODO = request.form["ODO"]
+    ODO = request.form["odo"]
     oil = request.form["oil"]
     text = request.form["text"]
 
@@ -175,40 +175,6 @@ def upload():
 #     img.save(path)
 #     out = display(path)
 #     return render_template("upload.html", distance=out, path=path)
-
-
-# app.route("/register_chinko", methods=["POST"])
-
-
-def register_chinko():
-    use_date = request.form["use_date"]
-    start_time = request.form["start_time"]
-    ending_time = request.form["ending_time"]
-    task_select = request.form["task_select"]
-    car_select = request.form["car_select"]
-    affiliation_select = request.form["affiliation_select"]
-    department1 = request.form["department1"]
-    department2 = request.form["department2"]
-    department3 = request.form["department3"]
-    ODO = request.form["ODO"]
-    oil = request.form["oil"]
-    text = request.form["text"]
-
-    Cars.create(
-        use_date=use_date,
-        start_time=start_time,
-        ending_time=ending_time,
-        task_select=task_select,
-        car_select=car_select,
-        affiliation_select=affiliation_select,
-        department1=department1,
-        department2=department2,
-        department3=department3,
-        odo=ODO,
-        oil=oil,
-        text=text,
-    )
-    return render_template("uplord.html")
 
 
 # uploed画像データベース
